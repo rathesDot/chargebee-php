@@ -9,6 +9,10 @@ This is the PHP Library for integrating with Chargebee. Sign up for a Chargebee 
 
 Chargebee now supports two API versions - [V1](https://apidocs.chargebee.com/docs/api/v1) and [V2](https://apidocs.chargebee.com/docs/api), of which V2 is the latest release and all future developments will happen in V2. This library is for **API version V2**. If you’re looking for V1, head to [chargebee-v1 branch](https://github.com/chargebee/chargebee-php/tree/chargebee-v1).
 
+## Requirements
+
+This package require a PHP version `> 7.3`.
+
 ## Installation
 
 `ChargeBee` is available on [Packagist](https://packagist.org/packages/chargebee/chargebee-php) and can be installed using [Composer](https://getcomposer.org/)
