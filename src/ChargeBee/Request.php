@@ -30,7 +30,7 @@ class Request
             throw new Exception("ChargeBee api environment is not set. Set your site & api key in Environment::configure('your_site', 'your_api_key')");
         }
         $ser_params = Util::serialize($params);
-        $response = ChargeBee_Curl::doRequest($method, $url, $env, $ser_params, $headers);
+        $response = Curl::doRequest($method, $url, $env, $ser_params, $headers);
         if (is_array($response) && array_key_exists('list', $response)) {
             return new ListResult($response['list'], isset($response['next_offset']) ? $response['next_offset'] : null);
         }

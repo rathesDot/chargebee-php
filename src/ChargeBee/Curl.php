@@ -3,8 +3,9 @@
 namespace Chargebee\Chargebee;
 
 use Chargebee\ChargeBee;
+use Exception;
 
-class ChargeBee_Curl
+class Curl
 {
     public static function utf8($value)
     {
