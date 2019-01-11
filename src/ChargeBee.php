@@ -1,8 +1,9 @@
 <?php
 
-function checkExtentions() {
+function checkExtentions()
+{
     $extensions = array('curl', 'json');
-    foreach ($extensions AS $e) {
+    foreach ($extensions as $e) {
         if (!extension_loaded($e)) {
             throw new Exception('ChargeBee requires the ' . $e . ' extension.');
         }
@@ -13,21 +14,22 @@ checkExtentions();
 
 abstract class ChargeBee
 {
+    public static $verifyCaCerts = true;
 
-  public static $verifyCaCerts = true;
+    public static function getVerifyCaCerts()
+    {
+        return self::$verifyCaCerts;
+    }
 
-  public static function getVerifyCaCerts() {
-    return self::$verifyCaCerts;
-  }
+    public static function setVerifyCaCerts($verify)
+    {
+        self::$verifyCaCerts = $verify;
+    }
 
-  public static function setVerifyCaCerts($verify) {
-    self::$verifyCaCerts = $verify;
-  }
-
-	public static function getCaCertPath() {
-		return dirname(__FILE__) . "/ssl/ca-certs.crt";
-	}
-
+    public static function getCaCertPath()
+    {
+        return dirname(__FILE__) . "/ssl/ca-certs.crt";
+    }
 }
 
 require(dirname(__FILE__) . '/ChargeBee/Version.php');
@@ -163,6 +165,3 @@ require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineItemDiscount.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuoteLineItemTax.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuoteShippingAddress.php');
 require(dirname(__FILE__) . '/ChargeBee/Models/QuoteTax.php');
-
-
-

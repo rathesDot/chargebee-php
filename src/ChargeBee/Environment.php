@@ -1,7 +1,7 @@
 <?php
 
-class ChargeBee_Environment {
-
+class ChargeBee_Environment
+{
     private $apiKey;
     private $site;
     private $apiEndPoint;
@@ -10,15 +10,16 @@ class ChargeBee_Environment {
     public static $scheme = "https";
     public static $chargebeeDomain;
 
-    public static  $connectTimeout= 50;
-    public static  $timeout=100;
+    public static $connectTimeout= 50;
+    public static $timeout=100;
 
-    public static  $timeMachineWaitInSecs = 3; 
-    public static  $exportWaitInSecs = 3; 
+    public static $timeMachineWaitInSecs = 3;
+    public static $exportWaitInSecs = 3;
 
     const API_VERSION = "v2";
     
-    function __construct($site, $apiKey) {
+    public function __construct($site, $apiKey)
+    {
         $this->site = $site;
         $this->apiKey = $apiKey;
         if (ChargeBee_Environment::$chargebeeDomain == null) {
@@ -28,32 +29,35 @@ class ChargeBee_Environment {
         }
     }
 
-    public static function configure($site, $apiKey) {
+    public static function configure($site, $apiKey)
+    {
         ChargeBee_Environment::$default_env = new ChargeBee_Environment($site, $apiKey);
     }
 
-    public function getApiKey() {
+    public function getApiKey()
+    {
         return $this->apiKey;
     }
 
-    public function getSite() {
+    public function getSite()
+    {
         return $this->site;
     }
 
-    public function getApiEndpoint() {
+    public function getApiEndpoint()
+    {
         return $this->apiEndPoint;
     }
 
     
     
-    public static function defaultEnv() {
+    public static function defaultEnv()
+    {
         return ChargeBee_Environment::$default_env;
     }
 
-    public function apiUrl($url) {
+    public function apiUrl($url)
+    {
         return $this->apiEndPoint . $url;
     }
-
 }
-
-?>

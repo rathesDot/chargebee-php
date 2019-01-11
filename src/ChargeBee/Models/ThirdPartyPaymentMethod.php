@@ -2,15 +2,11 @@
 
 class ChargeBee_ThirdPartyPaymentMethod extends ChargeBee_Model
 {
-
-  protected $allowed = array('type', 'gateway', 'gatewayAccountId', 'referenceId'
+    protected $allowed = array('type', 'gateway', 'gatewayAccountId', 'referenceId'
 );
 
 
 
-  # OPERATIONS
+    # OPERATIONS
   #-----------
-
- }
-
-?>
+}
