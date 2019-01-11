@@ -1,5 +1,11 @@
 <?php
 
+namespace Chargebee\Tests\Chargebee;
+
+/**
+ * @internal
+ * @coversNothing
+ */
 class ChargeBee_WebhookDeserializeTest extends UnitTestCase
 {
     public function testWebhookSerializing()
