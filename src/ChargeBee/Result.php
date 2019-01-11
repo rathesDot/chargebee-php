@@ -2,7 +2,7 @@
 
 namespace Chargebee\Chargebee;
 
-class ChargeBee_Result
+class Result
 {
     private $_response;
 

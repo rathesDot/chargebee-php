@@ -35,6 +35,6 @@ class ChargeBee_Request
             return new ChargeBee_ListResult($response['list'], isset($response['next_offset']) ? $response['next_offset'] : null);
         }
 
-        return new ChargeBee_Result($response);
+        return new Result($response);
     }
 }

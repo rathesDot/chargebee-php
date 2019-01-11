@@ -88,7 +88,7 @@ class ChargeBee_ListResult implements Countable, ArrayAccess, Iterator
     private function _initItems()
     {
         foreach ($this->response as $r) {
-            array_push($this->_items, new ChargeBee_Result($r));
+            array_push($this->_items, new Result($r));
         }
     }
 }
