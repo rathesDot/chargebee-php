@@ -11,6 +11,9 @@
   "license": "MIT",
   "homepage": "https://github.com/chargebee/chargebee-php",
   "minimum-stability": "stable",
+  "require": {
+    "php" : "^7.3"
+  },
   "autoload": {
     "files": [
       "lib/ChargeBee.php"
