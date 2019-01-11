@@ -29,7 +29,7 @@ class ChargeBee
         $this->apiKey = $apiKey;
 
         if (!in_array($apiVersion, self::ALLOWED_API_VERSIONS)) {
-            throw new InvalidArgumentException("$apiVersion is not a valid API version.");
+            throw new InvalidArgumentException("${apiVersion} is not a valid API version.");
         }
 
         $this->apiVersion = $apiVersion;

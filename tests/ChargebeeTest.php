@@ -11,7 +11,7 @@ final class ChargebeeTest extends TestCase
     /**
      * @test
      */
-    public function it_instantiates_a_client_for_v2()
+    public function itInstantiatesAClientForV2()
     {
         $client = new Chargebee('siteName', 'api-key');
 
@@ -21,7 +21,7 @@ final class ChargebeeTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_for_invalid_api_versions()
+    public function itThrowsForInvalidApiVersions()
     {
         $client = new Chargebee('siteName', 'api-key', 'v2');
         $this->assertEquals('v2', $client->getApiVersion());
@@ -31,6 +31,5 @@ final class ChargebeeTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         new Chargebee('siteName', 'api-key', 'v3');
-
     }
 }
