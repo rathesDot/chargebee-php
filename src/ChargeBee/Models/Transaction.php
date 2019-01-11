@@ -2,6 +2,8 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Util;
+
 class ChargeBee_Transaction extends ChargeBee_Model
 {
     protected $allowed = ['id', 'customerId', 'subscriptionId', 'gatewayAccountId', 'paymentSourceId', 'paymentMethod',
@@ -12,36 +14,36 @@ class ChargeBee_Transaction extends ChargeBee_Model
 
     public static function createAuthorization($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('transactions', 'create_authorization'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('transactions', 'create_authorization'), $params, $env, $headers);
     }
 
     public static function voidTransaction($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('transactions', $id, 'void'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('transactions', $id, 'void'), [], $env, $headers);
     }
 
     public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('transactions'), $params, $env, $headers);
+        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, Util::encodeURIPath('transactions'), $params, $env, $headers);
     }
 
     public static function transactionsForCustomer($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('customers', $id, 'transactions'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('customers', $id, 'transactions'), $params, $env, $headers);
     }
 
     public static function transactionsForSubscription($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'transactions'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('subscriptions', $id, 'transactions'), $params, $env, $headers);
     }
 
     public static function paymentsForInvoice($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('invoices', $id, 'payments'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('invoices', $id, 'payments'), $params, $env, $headers);
     }
 
     public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('transactions', $id), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('transactions', $id), [], $env, $headers);
     }
 }

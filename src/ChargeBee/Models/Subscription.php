@@ -2,6 +2,8 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Util;
+
 class ChargeBee_Subscription extends ChargeBee_Model
 {
     protected $allowed = ['id', 'customerId', 'currencyCode', 'planId', 'planQuantity', 'planUnitPrice',
@@ -12,121 +14,121 @@ class ChargeBee_Subscription extends ChargeBee_Model
 
     public static function create($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions'), $params, $env, $headers);
     }
 
     public static function createForCustomer($id, $params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('customers', $id, 'subscriptions'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('customers', $id, 'subscriptions'), $params, $env, $headers);
     }
 
     public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('subscriptions'), $params, $env, $headers);
+        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, Util::encodeURIPath('subscriptions'), $params, $env, $headers);
     }
 
     public static function subscriptionsForCustomer($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('customers', $id, 'subscriptions'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('customers', $id, 'subscriptions'), $params, $env, $headers);
     }
 
     public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('subscriptions', $id), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('subscriptions', $id), [], $env, $headers);
     }
 
     public static function retrieveWithScheduledChanges($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'retrieve_with_scheduled_changes'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('subscriptions', $id, 'retrieve_with_scheduled_changes'), [], $env, $headers);
     }
 
     public static function removeScheduledChanges($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_changes'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_changes'), [], $env, $headers);
     }
 
     public static function removeScheduledCancellation($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_cancellation'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_cancellation'), $params, $env, $headers);
     }
 
     public static function removeCoupons($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'remove_coupons'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'remove_coupons'), $params, $env, $headers);
     }
 
     public static function update($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id), $params, $env, $headers);
     }
 
     public static function changeTermEnd($id, $params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'change_term_end'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'change_term_end'), $params, $env, $headers);
     }
 
     public static function cancel($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'cancel'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'cancel'), $params, $env, $headers);
     }
 
     public static function reactivate($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'reactivate'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'reactivate'), $params, $env, $headers);
     }
 
     public static function addChargeAtTermEnd($id, $params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'add_charge_at_term_end'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'add_charge_at_term_end'), $params, $env, $headers);
     }
 
     public static function chargeAddonAtTermEnd($id, $params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'charge_addon_at_term_end'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'charge_addon_at_term_end'), $params, $env, $headers);
     }
 
     public static function chargeFutureRenewals($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'charge_future_renewals'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'charge_future_renewals'), $params, $env, $headers);
     }
 
     public static function importSubscription($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', 'import_subscription'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', 'import_subscription'), $params, $env, $headers);
     }
 
     public static function importForCustomer($id, $params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('customers', $id, 'import_subscription'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('customers', $id, 'import_subscription'), $params, $env, $headers);
     }
 
     public static function overrideBillingProfile($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'override_billing_profile'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'override_billing_profile'), $params, $env, $headers);
     }
 
     public static function delete($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'delete'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'delete'), [], $env, $headers);
     }
 
     public static function pause($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'pause'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'pause'), $params, $env, $headers);
     }
 
     public static function resume($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'resume'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'resume'), $params, $env, $headers);
     }
 
     public static function removeScheduledPause($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_pause'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_pause'), [], $env, $headers);
     }
 
     public static function removeScheduledResumption($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_resumption'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('subscriptions', $id, 'remove_scheduled_resumption'), [], $env, $headers);
     }
 }

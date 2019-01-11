@@ -2,6 +2,8 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Util;
+
 class ChargeBee_Coupon extends ChargeBee_Model
 {
     protected $allowed = ['id', 'name', 'invoiceName', 'discountType', 'discountPercentage', 'discountAmount',
@@ -12,36 +14,36 @@ class ChargeBee_Coupon extends ChargeBee_Model
 
     public static function create($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('coupons'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('coupons'), $params, $env, $headers);
     }
 
     public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('coupons'), $params, $env, $headers);
+        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, Util::encodeURIPath('coupons'), $params, $env, $headers);
     }
 
     public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('coupons', $id), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('coupons', $id), [], $env, $headers);
     }
 
     public static function update($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('coupons', $id), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('coupons', $id), $params, $env, $headers);
     }
 
     public static function delete($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('coupons', $id, 'delete'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('coupons', $id, 'delete'), [], $env, $headers);
     }
 
     public static function copy($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('coupons', 'copy'), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('coupons', 'copy'), $params, $env, $headers);
     }
 
     public static function unarchive($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('coupons', $id, 'unarchive'), [], $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('coupons', $id, 'unarchive'), [], $env, $headers);
     }
 }

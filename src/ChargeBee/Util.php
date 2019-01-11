@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee;
 
-class ChargeBee_Util
+use Exception;
+
+class Util
 {
     public static function toCamelCaseFromUnderscore($str)
     {
@@ -22,6 +24,13 @@ class ChargeBee_Util
         return preg_replace_callback('/([A-Z])/', $func, $str);
     }
 
+    /**
+     * @param $value
+     * @param null $prefix
+     * @param null $idx
+     * @return array
+     * @throws Exception
+     */
     public static function serialize($value, $prefix = null, $idx = null)
     {
         if ($value && !is_array($value)) {
@@ -55,6 +64,10 @@ class ChargeBee_Util
         return (string) $value;
     }
 
+    /**
+     * @return string
+     * @throws Exception
+     */
     public static function encodeURIPath()
     {
         $uriPaths = '';

@@ -2,11 +2,14 @@
 
 namespace Chargebee\Tests\Chargebee;
 
+use Chargebee\Chargebee\Util;
+use PHPUnit\Framework\TestCase;
+
 /**
  * @internal
  * @coversNothing
  */
-class ChargeBee_UtilTest extends UnitTestCase
+class ChargeBee_UtilTest extends TestCase
 {
     public function testSerialize()
     {
@@ -37,20 +40,20 @@ class ChargeBee_UtilTest extends UnitTestCase
             'card[expiry_month]' => '1',
             'card[expiry_year]' => '2024',
             'card[cvv]' => '007', ];
-        $this->assertEqual($after, ChargeBee_Util::serialize($before));
+        $this->assertEquals($after, Util::serialize($before));
     }
 
     public function testToCamelCaseFromUnderscore()
     {
         $before = 'test_string';
         $after = 'testString';
-        $this->assertEqual($after, ChargeBee_Util::toCamelCaseFromUnderscore($before));
+        $this->assertEquals($after, Util::toCamelCaseFromUnderscore($before));
     }
 
     public function testToUnderscoreFromCamelCase()
     {
         $before = 'testString';
         $after = 'test_string';
-        $this->assertEqual($after, ChargeBee_Util::toUnderscoreFromCamelCase($before));
+        $this->assertEquals($after, Util::toUnderscoreFromCamelCase($before));
     }
 }

@@ -100,7 +100,7 @@ class ChargeBee_Model
             if (is_null($setVal)) {
                 $setVal = $v;
             }
-            $this->_data[ChargeBee_Util::toCamelCaseFromUnderscore($k)] = $setVal;
+            $this->_data[Util::toCamelCaseFromUnderscore($k)] = $setVal;
         }
     }
 
@@ -112,7 +112,7 @@ class ChargeBee_Model
         $class = $this->__getDependant($type);
         if ($this->isHash($obj) && !is_null($class)) {
             $dependantObj = new $class($obj[$type], $subTypes);
-            $this->_data[ChargeBee_Util::toCamelCaseFromUnderscore($type)] = $dependantObj;
+            $this->_data[Util::toCamelCaseFromUnderscore($type)] = $dependantObj;
         }
 
         return $this;
@@ -132,7 +132,7 @@ class ChargeBee_Model
             foreach ($obj[$type] as $dt) {
                 array_push($setVal, new $class($dt, $subTypes));
             }
-            $this->_data[ChargeBee_Util::toCamelCaseFromUnderscore($type)] = $setVal;
+            $this->_data[Util::toCamelCaseFromUnderscore($type)] = $setVal;
         }
 
         return $this;
