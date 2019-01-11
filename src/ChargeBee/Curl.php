@@ -2,6 +2,8 @@
 
 namespace Chargebee\Chargebee;
 
+use Chargebee\ChargeBee;
+
 class ChargeBee_Curl
 {
     public static function utf8($value)
@@ -24,13 +26,13 @@ class ChargeBee_Curl
     {
         $curl = curl_init();
         $opts = [];
-        if (ChargeBee_Request::GET == $meth) {
+        if (Request::GET == $meth) {
             $opts[CURLOPT_HTTPGET] = 1;
             if (count($params) > 0) {
                 $encoded = http_build_query($params, null, '&');
                 $url = "${url}?${encoded}";
             }
-        } elseif (ChargeBee_Request::POST == $meth) {
+        } elseif (Request::POST == $meth) {
             $opts[CURLOPT_POST] = 1;
             $opts[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
         } else {

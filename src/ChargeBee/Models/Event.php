@@ -2,6 +2,7 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
 class ChargeBee_Event extends ChargeBee_Model
@@ -40,11 +41,11 @@ class ChargeBee_Event extends ChargeBee_Model
 
     public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, Util::encodeURIPath('events'), $params, $env, $headers);
+        return Request::sendListRequest(Request::GET, Util::encodeURIPath('events'), $params, $env, $headers);
     }
 
     public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('events', $id), [], $env, $headers);
+        return Request::send(Request::GET, Util::encodeURIPath('events', $id), [], $env, $headers);
     }
 }

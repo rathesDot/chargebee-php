@@ -2,6 +2,7 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
 class ChargeBee_TimeMachine extends ChargeBee_Model
@@ -41,16 +42,16 @@ class ChargeBee_TimeMachine extends ChargeBee_Model
 
     public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('time_machines', $id), [], $env, $headers);
+        return Request::send(Request::GET, Util::encodeURIPath('time_machines', $id), [], $env, $headers);
     }
 
     public static function startAfresh($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('time_machines', $id, 'start_afresh'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('time_machines', $id, 'start_afresh'), $params, $env, $headers);
     }
 
     public static function travelForward($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('time_machines', $id, 'travel_forward'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('time_machines', $id, 'travel_forward'), $params, $env, $headers);
     }
 }

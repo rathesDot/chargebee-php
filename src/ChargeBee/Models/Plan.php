@@ -2,6 +2,7 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
 class ChargeBee_Plan extends ChargeBee_Model
@@ -14,36 +15,36 @@ class ChargeBee_Plan extends ChargeBee_Model
 
     public static function create($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('plans'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('plans'), $params, $env, $headers);
     }
 
     public static function update($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('plans', $id), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('plans', $id), $params, $env, $headers);
     }
 
     public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, Util::encodeURIPath('plans'), $params, $env, $headers);
+        return Request::sendListRequest(Request::GET, Util::encodeURIPath('plans'), $params, $env, $headers);
     }
 
     public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('plans', $id), [], $env, $headers);
+        return Request::send(Request::GET, Util::encodeURIPath('plans', $id), [], $env, $headers);
     }
 
     public static function delete($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('plans', $id, 'delete'), [], $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('plans', $id, 'delete'), [], $env, $headers);
     }
 
     public static function copy($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('plans', 'copy'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('plans', 'copy'), $params, $env, $headers);
     }
 
     public static function unarchive($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('plans', $id, 'unarchive'), [], $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('plans', $id, 'unarchive'), [], $env, $headers);
     }
 }

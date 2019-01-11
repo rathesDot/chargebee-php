@@ -2,6 +2,7 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
 class ChargeBee_SiteMigrationDetail extends ChargeBee_Model
@@ -14,6 +15,6 @@ class ChargeBee_SiteMigrationDetail extends ChargeBee_Model
 
     public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, Util::encodeURIPath('site_migration_details'), $params, $env, $headers);
+        return Request::sendListRequest(Request::GET, Util::encodeURIPath('site_migration_details'), $params, $env, $headers);
     }
 }

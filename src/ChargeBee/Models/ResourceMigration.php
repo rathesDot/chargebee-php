@@ -2,6 +2,7 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
 class ChargeBee_ResourceMigration extends ChargeBee_Model
@@ -14,6 +15,6 @@ class ChargeBee_ResourceMigration extends ChargeBee_Model
 
     public static function retrieveLatest($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('resource_migrations', 'retrieve_latest'), $params, $env, $headers);
+        return Request::send(Request::GET, Util::encodeURIPath('resource_migrations', 'retrieve_latest'), $params, $env, $headers);
     }
 }

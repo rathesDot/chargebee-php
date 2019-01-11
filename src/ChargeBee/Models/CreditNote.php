@@ -2,6 +2,7 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
 class ChargeBee_CreditNote extends ChargeBee_Model
@@ -14,41 +15,41 @@ class ChargeBee_CreditNote extends ChargeBee_Model
 
     public static function create($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('credit_notes'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('credit_notes'), $params, $env, $headers);
     }
 
     public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('credit_notes', $id), [], $env, $headers);
+        return Request::send(Request::GET, Util::encodeURIPath('credit_notes', $id), [], $env, $headers);
     }
 
     public static function pdf($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('credit_notes', $id, 'pdf'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('credit_notes', $id, 'pdf'), $params, $env, $headers);
     }
 
     public static function recordRefund($id, $params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('credit_notes', $id, 'record_refund'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('credit_notes', $id, 'record_refund'), $params, $env, $headers);
     }
 
     public static function voidCreditNote($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('credit_notes', $id, 'void'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('credit_notes', $id, 'void'), $params, $env, $headers);
     }
 
     public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, Util::encodeURIPath('credit_notes'), $params, $env, $headers);
+        return Request::sendListRequest(Request::GET, Util::encodeURIPath('credit_notes'), $params, $env, $headers);
     }
 
     public static function creditNotesForCustomer($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('customers', $id, 'credit_notes'), $params, $env, $headers);
+        return Request::send(Request::GET, Util::encodeURIPath('customers', $id, 'credit_notes'), $params, $env, $headers);
     }
 
     public static function delete($id, $params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('credit_notes', $id, 'delete'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('credit_notes', $id, 'delete'), $params, $env, $headers);
     }
 }

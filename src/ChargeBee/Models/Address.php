@@ -2,6 +2,7 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
 class ChargeBee_Address extends ChargeBee_Model
@@ -14,11 +15,11 @@ class ChargeBee_Address extends ChargeBee_Model
 
     public static function retrieve($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, Util::encodeURIPath('addresses'), $params, $env, $headers);
+        return Request::send(Request::GET, Util::encodeURIPath('addresses'), $params, $env, $headers);
     }
 
     public static function update($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, Util::encodeURIPath('addresses'), $params, $env, $headers);
+        return Request::send(Request::POST, Util::encodeURIPath('addresses'), $params, $env, $headers);
     }
 }

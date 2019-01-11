@@ -2,7 +2,7 @@
 
 namespace Chargebee\Chargebee;
 
-class ChargeBee_Request
+class Request
 {
     const GET = 'get';
 
