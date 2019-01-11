@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Exceptions;
 
-class ChargeBee_APIError extends Exception
+use Exception;
+
+class APIError extends Exception
 {
     private $httpStatusCode;
     private $jsonObject;

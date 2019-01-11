@@ -3,6 +3,7 @@
 namespace Chargebee\Chargebee\Models;
 
 use Chargebee\Chargebee\Environment;
+use Chargebee\Chargebee\Exceptions\OperationFailedException;
 use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
@@ -29,7 +30,7 @@ class ChargeBee_TimeMachine extends Model
             $errorJSON = json_decode($this->errorJson, true);
             $httpCode = $errorJSON['http_code'];
 
-            throw new ChargeBee_OperationFailedException($httpCode, $errorJSON);
+            throw new OperationFailedException($httpCode, $errorJSON);
         }
         if ('in_progress' != $this->timeTravelStatus
            && 'succeeded' != $this->timeTravelStatus

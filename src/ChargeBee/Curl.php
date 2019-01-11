@@ -3,6 +3,11 @@
 namespace Chargebee\Chargebee;
 
 use Chargebee\ChargeBee;
+use Chargebee\Chargebee\Exceptions\APIError;
+use Chargebee\Chargebee\Exceptions\InvalidRequestException;
+use Chargebee\Chargebee\Exceptions\IOException;
+use Chargebee\Chargebee\Exceptions\OperationFailedException;
+use Chargebee\Chargebee\Exceptions\PaymentException;
 use Exception;
 
 class Curl
@@ -66,7 +71,7 @@ class Curl
             $message = 'IO exception occurred when trying to connect to '.$url.' . Reason : '.$curlMsg;
             curl_close($curl);
 
-            throw new ChargeBee_IOException($message, $errno);
+            throw new IOException($message, $errno);
         }
 
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -108,15 +113,15 @@ class Curl
             $type = $respJson['type'];
         }
         if ('payment' == $type) {
-            throw new ChargeBee_PaymentException($httpCode, $respJson);
+            throw new PaymentException($httpCode, $respJson);
         }
         if ('operation_failed' == $type) {
-            throw new ChargeBee_OperationFailedException($httpCode, $respJson);
+            throw new OperationFailedException($httpCode, $respJson);
         }
         if ('invalid_request' == $type) {
-            throw new ChargeBee_InvalidRequestException($httpCode, $respJson);
+            throw new InvalidRequestException($httpCode, $respJson);
         }
 
-        throw new ChargeBee_APIError($httpCode, $respJson);
+        throw new APIError($httpCode, $respJson);
     }
 }

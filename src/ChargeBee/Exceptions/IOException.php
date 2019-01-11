@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Exceptions;
 
-class ChargeBee_IOException extends Exception
+use Exception;
+
+class IOException extends Exception
 {
     private $errorNo;
 

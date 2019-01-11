@@ -2,7 +2,7 @@
 
 namespace Chargebee\Chargebee\Exceptions;
 
-class ChargeBee_PaymentException extends ChargeBee_APIError
+class PaymentException extends APIError
 {
     public function __construct($httpStatusCode, $jsonObject)
     {
