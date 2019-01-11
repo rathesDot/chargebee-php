@@ -15,8 +15,16 @@
     "php" : "^7.3"
   },
   "autoload": {
+    "psr-4": {
+      "Chargebee\\": "src"
+    },
     "files": [
       "lib/ChargeBee.php"
     ]
-  }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Chargebee\\Test\\": "tests"
+    }
+  },
 }
