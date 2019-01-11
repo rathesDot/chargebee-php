@@ -70,7 +70,7 @@ class ChargeBee_SampleData
 		"customer"            => array(
 			"id"                 => "unpaid_cancelled",
 			"first_name"         => "unpaid_cancelled",
-			"email"              => "unpaid_cancelled@test.com",
+			"email"              => "unpaid_cancelled@tests.com",
 			"created_at"         => 1335615802,
 			"card_status"        => "valid"
 			),
