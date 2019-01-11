@@ -2,10 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_HostedPage extends ChargeBee_Model
+class ChargeBee_HostedPage extends Model
 {
     protected $allowed = ['id', 'type', 'url', 'state', 'failureReason', 'passThruContent', 'embed', 'createdAt',
         'expiresAt', 'updatedAt', 'resourceVersion', 'checkoutInfo', ];

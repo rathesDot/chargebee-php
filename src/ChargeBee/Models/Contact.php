@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_Contact extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_Contact extends Model
 {
     protected $allowed = ['id', 'firstName', 'lastName', 'email', 'phone', 'label', 'enabled', 'sendAccountEmail',
         'sendBillingEmail', ];

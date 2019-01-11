@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_InvoiceEstimate extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_InvoiceEstimate extends Model
 {
     protected $allowed = ['recurring', 'priceType', 'currencyCode', 'subTotal', 'total', 'creditsApplied',
         'amountPaid', 'amountDue', 'lineItems', 'discounts', 'taxes', 'lineItemTaxes', 'lineItemTiers', 'lineItemDiscounts', 'roundOffAmount', ];

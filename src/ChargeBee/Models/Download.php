@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_Download extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_Download extends Model
 {
     protected $allowed = ['downloadUrl', 'validTill',
     ];

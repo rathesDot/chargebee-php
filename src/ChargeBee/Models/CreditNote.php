@@ -2,10 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_CreditNote extends ChargeBee_Model
+class ChargeBee_CreditNote extends Model
 {
     protected $allowed = ['id', 'customerId', 'subscriptionId', 'referenceInvoiceId', 'type', 'reasonCode',
         'status', 'vatNumber', 'date', 'priceType', 'currencyCode', 'total', 'amountAllocated', 'amountRefunded', 'amountAvailable', 'refundedAt', 'voidedAt', 'resourceVersion', 'updatedAt', 'subTotal', 'roundOffAmount', 'lineItems', 'discounts', 'lineItemDiscounts', 'lineItemTiers', 'taxes', 'lineItemTaxes', 'linkedRefunds', 'allocations', 'deleted', ];

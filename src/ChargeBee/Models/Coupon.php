@@ -2,10 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Coupon extends ChargeBee_Model
+class ChargeBee_Coupon extends Model
 {
     protected $allowed = ['id', 'name', 'invoiceName', 'discountType', 'discountPercentage', 'discountAmount',
         'discountQuantity', 'currencyCode', 'durationType', 'durationMonth', 'validTill', 'maxRedemptions', 'status', 'applyDiscountOn', 'applyOn', 'planConstraint', 'addonConstraint', 'createdAt', 'archivedAt', 'resourceVersion', 'updatedAt', 'planIds', 'addonIds', 'redemptions', 'invoiceNotes', 'metaData', ];

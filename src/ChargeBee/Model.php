@@ -2,7 +2,7 @@
 
 namespace Chargebee\Chargebee;
 
-class ChargeBee_Model
+class Model
 {
     protected $_values;
 

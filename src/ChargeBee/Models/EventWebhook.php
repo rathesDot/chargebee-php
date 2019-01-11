@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_EventWebhook extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_EventWebhook extends Model
 {
     protected $allowed = ['id', 'webhook_status'];
 }

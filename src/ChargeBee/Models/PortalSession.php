@@ -2,10 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_PortalSession extends ChargeBee_Model
+class ChargeBee_PortalSession extends Model
 {
     protected $allowed = ['id', 'token', 'accessUrl', 'redirectUrl', 'status', 'createdAt', 'expiresAt',
         'customerId', 'loginAt', 'logoutAt', 'loginIpaddress', 'logoutIpaddress', 'linkedCustomers', ];

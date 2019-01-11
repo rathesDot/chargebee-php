@@ -2,10 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Estimate extends ChargeBee_Model
+class ChargeBee_Estimate extends Model
 {
     protected $allowed = ['createdAt', 'subscriptionEstimate', 'invoiceEstimate', 'invoiceEstimates', 'nextInvoiceEstimate',
         'creditNoteEstimates', 'unbilledChargeEstimates', ];

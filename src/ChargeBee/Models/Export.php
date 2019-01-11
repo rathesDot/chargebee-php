@@ -2,10 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Export extends ChargeBee_Model
+class ChargeBee_Export extends Model
 {
     protected $allowed = ['id', 'operationType', 'mimeType', 'status', 'createdAt', 'download',
     ];

@@ -2,10 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Subscription extends ChargeBee_Model
+class ChargeBee_Subscription extends Model
 {
     protected $allowed = ['id', 'customerId', 'currencyCode', 'planId', 'planQuantity', 'planUnitPrice',
         'setupFee', 'planAmount', 'billingPeriod', 'billingPeriodUnit', 'planFreeQuantity', 'status', 'startDate', 'trialStart', 'trialEnd', 'currentTermStart', 'currentTermEnd', 'nextBillingAt', 'remainingBillingCycles', 'poNumber', 'createdAt', 'startedAt', 'activatedAt', 'giftId', 'pauseDate', 'resumeDate', 'cancelledAt', 'cancelReason', 'affiliateToken', 'createdFromIp', 'resourceVersion', 'updatedAt', 'hasScheduledChanges', 'paymentSourceId', 'autoCollection', 'dueInvoicesCount', 'dueSince', 'totalDues', 'mrr', 'exchangeRate', 'baseCurrencyCode', 'addons', 'eventBasedAddons', 'chargedEventBasedAddons', 'coupon', 'coupons', 'shippingAddress', 'referralInfo', 'invoiceNotes', 'metaData', 'deleted', ];

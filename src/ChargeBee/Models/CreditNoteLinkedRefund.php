@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_CreditNoteLinkedRefund extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_CreditNoteLinkedRefund extends Model
 {
     protected $allowed = ['txn_id', 'applied_amount', 'applied_at', 'txn_status', 'txn_date', 'txn_amount'];
 }

@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_InvoiceNote extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_InvoiceNote extends Model
 {
     protected $allowed = ['entity_type', 'note', 'entity_id'];
 }

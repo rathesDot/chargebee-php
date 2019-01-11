@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_CreditNoteTax extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_CreditNoteTax extends Model
 {
     protected $allowed = ['name', 'amount', 'description'];
 }

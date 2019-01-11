@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_QuoteDiscount extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_QuoteDiscount extends Model
 {
     protected $allowed = ['amount', 'description', 'entity_type', 'entity_id'];
 }

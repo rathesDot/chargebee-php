@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_AddonTier extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_AddonTier extends Model
 {
     protected $allowed = ['starting_unit', 'ending_unit', 'price'];
 }

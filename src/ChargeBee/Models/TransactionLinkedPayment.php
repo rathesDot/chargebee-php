@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_TransactionLinkedPayment extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_TransactionLinkedPayment extends Model
 {
     protected $allowed = ['id', 'status', 'amount', 'date'];
 }

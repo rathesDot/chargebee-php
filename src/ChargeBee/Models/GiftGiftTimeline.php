@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_GiftGiftTimeline extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_GiftGiftTimeline extends Model
 {
     protected $allowed = ['status', 'occurred_at'];
 }

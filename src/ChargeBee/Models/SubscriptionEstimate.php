@@ -2,7 +2,9 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_SubscriptionEstimate extends ChargeBee_Model
+use Chargebee\Chargebee\Model;
+
+class ChargeBee_SubscriptionEstimate extends Model
 {
     protected $allowed = ['id', 'currencyCode', 'status', 'nextBillingAt', 'pauseDate', 'resumeDate', 'shippingAddress',
     ];
