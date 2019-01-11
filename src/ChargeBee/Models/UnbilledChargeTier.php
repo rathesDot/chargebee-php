@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_UnbilledChargeTier extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class UnbilledChargeTier extends Model
 {
-    protected $allowed = array('starting_unit', 'ending_unit', 'quantity_used', 'unit_amount');
+    protected $allowed = ['starting_unit', 'ending_unit', 'quantity_used', 'unit_amount'];
 }

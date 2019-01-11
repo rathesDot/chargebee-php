@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_SubscriptionChargedEventBasedAddon extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class SubscriptionChargedEventBasedAddon extends Model
 {
-    protected $allowed = array('id', 'last_charged_at');
+    protected $allowed = ['id', 'last_charged_at'];
 }

@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_GiftGiftReceiver extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class GiftGiftReceiver extends Model
 {
-    protected $allowed = array('customer_id', 'subscription_id', 'first_name', 'last_name', 'email');
+    protected $allowed = ['customer_id', 'subscription_id', 'first_name', 'last_name', 'email'];
 }

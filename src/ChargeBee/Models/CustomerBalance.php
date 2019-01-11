@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_CustomerBalance extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class CustomerBalance extends Model
 {
-    protected $allowed = array('promotional_credits', 'excess_payments', 'refundable_credits', 'unbilled_charges', 'currency_code', 'balance_currency_code');
+    protected $allowed = ['promotional_credits', 'excess_payments', 'refundable_credits', 'unbilled_charges', 'currency_code', 'balance_currency_code'];
 }

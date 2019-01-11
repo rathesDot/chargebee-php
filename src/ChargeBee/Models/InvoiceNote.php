@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_InvoiceNote extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class InvoiceNote extends Model
 {
-    protected $allowed = array('entity_type', 'note', 'entity_id');
+    protected $allowed = ['entity_type', 'note', 'entity_id'];
 }

@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_IOException extends Exception
+namespace Chargebee\Chargebee\Exceptions;
+
+use Exception;
+
+class IOException extends Exception
 {
     private $errorNo;
 

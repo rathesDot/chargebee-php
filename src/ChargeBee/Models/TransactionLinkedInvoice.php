@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_TransactionLinkedInvoice extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class TransactionLinkedInvoice extends Model
 {
-    protected $allowed = array('invoice_id', 'applied_amount', 'applied_at', 'invoice_date', 'invoice_total', 'invoice_status');
+    protected $allowed = ['invoice_id', 'applied_amount', 'applied_at', 'invoice_date', 'invoice_total', 'invoice_status'];
 }

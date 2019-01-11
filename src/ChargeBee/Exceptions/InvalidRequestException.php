@@ -1,5 +1,8 @@
 <?php
-class ChargeBee_InvalidRequestException extends ChargeBee_APIError
+
+namespace Chargebee\Chargebee\Exceptions;
+
+class InvalidRequestException extends APIError
 {
     public function __construct($httpStatusCode, $jsonObject)
     {

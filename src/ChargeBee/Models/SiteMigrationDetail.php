@@ -1,17 +1,21 @@
 <?php
 
-class ChargeBee_SiteMigrationDetail extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+use Chargebee\Chargebee\Request;
+use Chargebee\Chargebee\Util;
+
+class SiteMigrationDetail extends Model
 {
-    protected $allowed = array('entityId', 'otherSiteName', 'entityIdAtOtherSite', 'migratedAt', 'entityType',
-'status');
+    protected $allowed = ['entityId', 'otherSiteName', 'entityIdAtOtherSite', 'migratedAt', 'entityType',
+        'status', ];
 
+    // OPERATIONS
+    //-----------
 
-
-    # OPERATIONS
-    #-----------
-
-    public static function all($params = array(), $env = null, $headers = array())
+    public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("site_migration_details"), $params, $env, $headers);
+        return Request::sendListRequest(Request::GET, Util::encodeURIPath('site_migration_details'), $params, $env, $headers);
     }
 }

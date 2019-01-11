@@ -1,5 +1,8 @@
 <?php
-class ChargeBee_PaymentException extends ChargeBee_APIError
+
+namespace Chargebee\Chargebee\Exceptions;
+
+class PaymentException extends APIError
 {
     public function __construct($httpStatusCode, $jsonObject)
     {

@@ -1,12 +1,22 @@
 <?php
-class ChargeBee_ListResultTest extends UnitTestCase
+
+namespace Chargebee\Tests\Chargebee;
+
+use Chargebee\Chargebee\ListResult;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @internal
+ * @coversNothing
+ */
+class ListResultTest extends TestCase
 {
     public function testResponseToListConversion()
     {
-        $list = new ChargeBee_ListResult(ChargeBee_SampleData::listSubscriptions(), null);
-        $this->assertEqual($list->count(), 2);
+        $list = new ListResult(SampleData::listSubscriptions(), null);
+        $this->assertEquals($list->count(), 2);
         foreach ($list as $l) {
-            $this->assertEqual($l->subscription()->id, "sample_subscription");
+            $this->assertEquals($l->subscription()->id, 'sample_subscription');
         }
     }
 }

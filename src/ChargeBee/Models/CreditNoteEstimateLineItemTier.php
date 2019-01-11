@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_CreditNoteEstimateLineItemTier extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class CreditNoteEstimateLineItemTier extends Model
 {
-    protected $allowed = array('line_item_id', 'starting_unit', 'ending_unit', 'quantity_used', 'unit_amount');
+    protected $allowed = ['line_item_id', 'starting_unit', 'ending_unit', 'quantity_used', 'unit_amount'];
 }

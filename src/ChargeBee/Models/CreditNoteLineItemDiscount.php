@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_CreditNoteLineItemDiscount extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class CreditNoteLineItemDiscount extends Model
 {
-    protected $allowed = array('line_item_id', 'discount_type', 'coupon_id', 'discount_amount');
+    protected $allowed = ['line_item_id', 'discount_type', 'coupon_id', 'discount_amount'];
 }

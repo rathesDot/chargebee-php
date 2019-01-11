@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_InvoiceCreatedCreditNote extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class InvoiceCreatedCreditNote extends Model
 {
-    protected $allowed = array('cn_id', 'cn_type', 'cn_reason_code', 'cn_date', 'cn_total', 'cn_status');
+    protected $allowed = ['cn_id', 'cn_type', 'cn_reason_code', 'cn_date', 'cn_total', 'cn_status'];
 }

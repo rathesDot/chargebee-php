@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_GiftGiftTimeline extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class GiftGiftTimeline extends Model
 {
-    protected $allowed = array('status', 'occurred_at');
+    protected $allowed = ['status', 'occurred_at'];
 }

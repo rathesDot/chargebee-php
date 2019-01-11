@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_CreditNoteTax extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class CreditNoteTax extends Model
 {
-    protected $allowed = array('name', 'amount', 'description');
+    protected $allowed = ['name', 'amount', 'description'];
 }

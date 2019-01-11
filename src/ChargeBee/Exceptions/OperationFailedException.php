@@ -1,5 +1,8 @@
 <?php
-class ChargeBee_OperationFailedException extends ChargeBee_APIError
+
+namespace Chargebee\Chargebee\Exceptions;
+
+class OperationFailedException extends APIError
 {
     public function __construct($httpStatusCode, $jsonObject)
     {

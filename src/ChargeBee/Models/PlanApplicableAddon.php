@@ -1,6 +1,10 @@
 <?php
 
-class ChargeBee_PlanApplicableAddon extends ChargeBee_Model
+namespace Chargebee\Chargebee\Models;
+
+use Chargebee\Chargebee\Model;
+
+class PlanApplicableAddon extends Model
 {
-    protected $allowed = array('id');
+    protected $allowed = ['id'];
 }
