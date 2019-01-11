@@ -2,6 +2,8 @@
 
 namespace Chargebee\Chargebee\Models;
 
-class ChargeBee_Content extends ChargeBee_Result
+use Chargebee\Chargebee\Result;
+
+class ChargeBee_Content extends Result
 {
 }
