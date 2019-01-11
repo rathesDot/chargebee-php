@@ -1,11 +1,33 @@
 {
-    "name": "chargebee/chargebee-php",
-    "type": "library",
-    "description": "ChargeBee API client implementation for PHP",
-    "keywords": ["chargebee", "payments", "subscription billing", "recurring billing"],
-    "license": "MIT",
-    "homepage": "https://github.com/chargebee/chargebee-php",
-    "autoload": {
-        "files": ["lib/ChargeBee.php"]
+  "name": "chargebee/chargebee-php",
+  "type": "library",
+  "description": "ChargeBee API client implementation for PHP",
+  "keywords": [
+    "chargebee",
+    "payments",
+    "subscription billing",
+    "recurring billing"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/chargebee/chargebee-php",
+  "minimum-stability": "stable",
+  "require": {
+    "php" : "^7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Chargebee\\": "src"
+    },
+    "files": [
+      "src/ChargeBee.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Chargebee\\Test\\": "tests"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  }
 }

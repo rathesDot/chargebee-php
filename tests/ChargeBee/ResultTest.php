@@ -35,7 +35,7 @@ class ChargeBee_ResultTest extends UnitTestCase
 		$s = $content->subscription();
 		$this->assertEqual($s->id, "unpaid_cancelled");
 		$c = $content->customer();
-		$this->assertEqual($c->email, "unpaid_cancelled@test.com");
+		$this->assertEqual($c->email, "unpaid_cancelled@tests.com");
 		$card = $content->card();
 		$this->assertEqual($card->cardType, "visa");
 	}
