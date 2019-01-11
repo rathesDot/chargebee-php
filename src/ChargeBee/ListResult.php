@@ -2,7 +2,11 @@
 
 namespace Chargebee\Chargebee;
 
-class ChargeBee_ListResult implements Countable, ArrayAccess, Iterator
+use ArrayAccess;
+use Countable;
+use Iterator;
+
+class ListResult implements Countable, ArrayAccess, Iterator
 {
     protected $_items;
     private $response;
