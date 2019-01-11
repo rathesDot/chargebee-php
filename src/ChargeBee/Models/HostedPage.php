@@ -14,7 +14,7 @@ class HostedPage extends Model
     public function content()
     {
         if (isset($this->_values['content'])) {
-            return new ChargeBee_Content($this->_values['content']);
+            return new Content($this->_values['content']);
         }
 
         return null;

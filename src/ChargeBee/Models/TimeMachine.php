@@ -23,7 +23,7 @@ class TimeMachine extends Model
                 throw new RuntimeException('The time travel is taking too much time');
             }
             sleep(Environment::$timeMachineWaitInSecs);
-            $this->_values = ChargeBee_TimeMachine::retrieve($this->name, $env)->timeMachine()->getValues();
+            $this->_values = TimeMachine::retrieve($this->name, $env)->timeMachine()->getValues();
             $this->_load();
         }
         if ('failed' == $this->timeTravelStatus) {

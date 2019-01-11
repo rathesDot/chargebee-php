@@ -21,7 +21,7 @@ class Export extends Model
                 throw new RuntimeException('Export is taking too long');
             }
             sleep(Environment::$exportWaitInSecs);
-            $this->_values = ChargeBee_Export::retrieve($this->id, $env, $headers)->export()->getValues();
+            $this->_values = Export::retrieve($this->id, $env, $headers)->export()->getValues();
             $this->_load();
         }
 

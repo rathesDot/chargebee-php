@@ -2,19 +2,22 @@
 
 namespace Chargebee\Tests\Chargebee;
 
+use Chargebee\Chargebee\Models\Event;
+use PHPUnit\Framework\TestCase;
+
 /**
  * @internal
  * @coversNothing
  */
-class ChargeBee_WebhookDeserializeTest extends UnitTestCase
+class WebhookDeserializeTest extends TestCase
 {
     public function testWebhookSerializing()
     {
-        $event = ChargeBee_Event::deserialize(ChargeBee_SampleData::webhookData());
+        $event = Event::deserialize((new SampleData)->webhookData());
         $content = $event->content();
-        $this->assertNotEqual($content->customer(), null);
-        $this->assertNotEqual($content->subscription(), null);
-        $this->assertNotEqual($content->card(), null);
-        $this->assertNotEqual($content->invoice(), null);
+        $this->assertNotEquals($content->customer(), null);
+        $this->assertNotEquals($content->subscription(), null);
+        $this->assertNotEquals($content->card(), null);
+        $this->assertNotEquals($content->invoice(), null);
     }
 }

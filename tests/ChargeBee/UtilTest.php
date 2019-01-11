@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  * @internal
  * @coversNothing
  */
-class ChargeBee_UtilTest extends TestCase
+class UtilTest extends TestCase
 {
     public function testSerialize()
     {

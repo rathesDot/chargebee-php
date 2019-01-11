@@ -3,31 +3,32 @@
 namespace Chargebee\Tests\Chargebee;
 
 use Chargebee\Chargebee\Result;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
  * @coversNothing
  */
-class ChargeBee_ResultTest extends UnitTestCase
+class ResultTest extends TestCase
 {
     public function testSimpleResponseToObjectConversion()
     {
-        $result = new Result(ChargeBee_SampleData::simpleSubscription());
+        $result = new Result((new SampleData)->simpleSubscription());
         $s = $result->subscription();
         $c = $result->customer();
-        $this->assertEqual($s->id, 'simple_subscription');
-        $this->assertEqual($s->planId, 'basic');
-        $this->assertEqual($c->firstName, 'simple');
-        $this->assertEqual($c->lastName, 'subscription');
+        $this->assertEquals($s->id, 'simple_subscription');
+        $this->assertEquals($s->planId, 'basic');
+        $this->assertEquals($c->firstName, 'simple');
+        $this->assertEquals($c->lastName, 'subscription');
     }
 
     public function testNestedResponseToObjectConversion()
     {
-        $result = new Result(ChargeBee_SampleData::nestedSubscription());
+        $result = new Result((new SampleData)->nestedSubscription());
         $s = $result->subscription();
-        $this->assertEqual($s->id, 'nested_subscription');
+        $this->assertEquals($s->id, 'nested_subscription');
         $addons = $s->addons;
-        $this->assertEqual(count($addons), 2);
+        $this->assertEquals(count($addons), 2);
         foreach ($addons as $a) {
             $this->assertTrue(in_array($a->id, ['monitor', 'ssl']));
         }
@@ -35,14 +36,14 @@ class ChargeBee_ResultTest extends UnitTestCase
 
     public function testEventResponseToObjectConversion()
     {
-        $result = new Result(ChargeBee_SampleData::sampleEvent());
+        $result = new Result((new SampleData)->sampleEvent());
         $event = $result->event();
         $content = $event->content();
         $s = $content->subscription();
-        $this->assertEqual($s->id, 'unpaid_cancelled');
+        $this->assertEquals($s->id, 'unpaid_cancelled');
         $c = $content->customer();
-        $this->assertEqual($c->email, 'unpaid_cancelled@tests.com');
+        $this->assertEquals($c->email, 'unpaid_cancelled@tests.com');
         $card = $content->card();
-        $this->assertEqual($card->cardType, 'visa');
+        $this->assertEquals($card->cardType, 'visa');
     }
 }

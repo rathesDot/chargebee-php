@@ -2,7 +2,7 @@
 
 namespace Chargebee\Tests\Chargebee;
 
-class ChargeBee_SampleData
+class SampleData
 {
     public function simpleSubscription()
     {

@@ -15,7 +15,7 @@ class Event extends Model
 
     public function content()
     {
-        return new ChargeBee_Content($this->_values['content']);
+        return new Content($this->_values['content']);
     }
 
     public static function deserialize($json)
@@ -33,7 +33,7 @@ class Event extends Model
                 }
             }
 
-            return new ChargeBee_Event($webhookData);
+            return new Event($webhookData);
         }
 
         return null;
