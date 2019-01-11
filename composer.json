@@ -26,5 +26,8 @@
     "psr-4": {
       "Chargebee\\Test\\": "tests"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
   }
 }
