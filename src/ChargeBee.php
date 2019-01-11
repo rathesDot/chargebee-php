@@ -1,17 +1,5 @@
 <?php
 
-function checkExtentions()
-{
-    $extensions = array('curl', 'json');
-    foreach ($extensions as $e) {
-        if (!extension_loaded($e)) {
-            throw new Exception('ChargeBee requires the ' . $e . ' extension.');
-        }
-    }
-}
-
-checkExtentions();
-
 abstract class ChargeBee
 {
     public static $verifyCaCerts = true;
