@@ -2,7 +2,7 @@
 
 namespace Chargebee\Chargebee;
 
-class ChargeBee_Environment
+class Environment
 {
     const API_VERSION = 'v2';
     public static $scheme = 'https';
@@ -23,16 +23,16 @@ class ChargeBee_Environment
     {
         $this->site = $site;
         $this->apiKey = $apiKey;
-        if (null == ChargeBee_Environment::$chargebeeDomain) {
-            $this->apiEndPoint = "https://${site}.chargebee.com/api/".ChargeBee_Environment::API_VERSION;
+        if (null == Environment::$chargebeeDomain) {
+            $this->apiEndPoint = "https://${site}.chargebee.com/api/".Environment::API_VERSION;
         } else {
-            $this->apiEndPoint = ChargeBee_Environment::$scheme."://${site}.".ChargeBee_Environment::$chargebeeDomain.'/api/'.ChargeBee_Environment::API_VERSION;
+            $this->apiEndPoint = Environment::$scheme."://${site}.".Environment::$chargebeeDomain.'/api/'.Environment::API_VERSION;
         }
     }
 
     public static function configure($site, $apiKey)
     {
-        ChargeBee_Environment::$default_env = new ChargeBee_Environment($site, $apiKey);
+        Environment::$default_env = new Environment($site, $apiKey);
     }
 
     public function getApiKey()
@@ -52,7 +52,7 @@ class ChargeBee_Environment
 
     public static function defaultEnv()
     {
-        return ChargeBee_Environment::$default_env;
+        return Environment::$default_env;
     }
 
     public function apiUrl($url)

@@ -2,9 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Environment;
 use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
+use RuntimeException;
 
 class ChargeBee_Event extends Model
 {
@@ -25,9 +27,9 @@ class ChargeBee_Event extends Model
         if (null != $webhookData) {
             if (isset($webhookData['api_version'])) {
                 $apiVersion = strtoupper($webhookData['api_version']);
-                if (null != $apiVersion && 0 != strcasecmp($apiVersion, ChargeBee_Environment::API_VERSION)) {
+                if (null != $apiVersion && 0 != strcasecmp($apiVersion, Environment::API_VERSION)) {
                     throw new RuntimeException('API version ['.$apiVersion.'] in response does not match '
-                        .'with client library API version ['.strtoupper(ChargeBee_Environment::API_VERSION).']');
+                        .'with client library API version ['.strtoupper(Environment::API_VERSION).']');
                 }
             }
 

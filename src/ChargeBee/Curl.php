@@ -41,8 +41,8 @@ class ChargeBee_Curl
         $url = self::utf8($env->apiUrl($url));
         $opts[CURLOPT_URL] = $url;
         $opts[CURLOPT_RETURNTRANSFER] = true;
-        $opts[CURLOPT_CONNECTTIMEOUT] = ChargeBee_Environment::$connectTimeout;
-        $opts[CURLOPT_TIMEOUT] = ChargeBee_Environment::$timeout;
+        $opts[CURLOPT_CONNECTTIMEOUT] = Environment::$connectTimeout;
+        $opts[CURLOPT_TIMEOUT] = Environment::$timeout;
         $userAgent = 'Chargebee-PHP-Client'.' v'.Version::VERSION;
 
         $httpHeaders = self::addCustomHeaders($headers);

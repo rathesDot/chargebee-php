@@ -2,18 +2,21 @@
 
 namespace Chargebee\Tests\Chargebee;
 
+use Chargebee\Chargebee\Environment;
+use PHPUnit\Framework\TestCase;
+
 /**
  * @internal
  * @coversNothing
  */
-class ChargeBee_EnvironmentTest extends UnitTestCase
+class EnvironmentTest extends TestCase
 {
     public function testConfigure()
     {
-        ChargeBee_Environment::configure('test_site', 'test_api_key');
-        $defEnvConfig = ChargeBee_Environment::defaultEnv();
-        $this->assertEqual('test_site', $defEnvConfig->getSite());
-        $this->assertEqual('test_api_key', $defEnvConfig->getApiKey());
-        $this->assertEqual('https://test_site.chargebee.com/api/v1', $defEnvConfig->getApiEndpoint());
+        Environment::configure('test_site', 'test_api_key');
+        $defEnvConfig = Environment::defaultEnv();
+        $this->assertEquals('test_site', $defEnvConfig->getSite());
+        $this->assertEquals('test_api_key', $defEnvConfig->getApiKey());
+        $this->assertEquals('https://test_site.chargebee.com/api/v1', $defEnvConfig->getApiEndpoint());
     }
 }

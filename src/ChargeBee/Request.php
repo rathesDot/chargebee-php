@@ -24,10 +24,10 @@ class Request
     public static function send($method, $url, $params = [], $env = null, $headers = [])
     {
         if (is_null($env)) {
-            $env = ChargeBee_Environment::defaultEnv();
+            $env = Environment::defaultEnv();
         }
         if (is_null($env)) {
-            throw new Exception("ChargeBee api environment is not set. Set your site & api key in ChargeBee_Environment::configure('your_site', 'your_api_key')");
+            throw new Exception("ChargeBee api environment is not set. Set your site & api key in Environment::configure('your_site', 'your_api_key')");
         }
         $ser_params = Util::serialize($params);
         $response = ChargeBee_Curl::doRequest($method, $url, $env, $ser_params, $headers);

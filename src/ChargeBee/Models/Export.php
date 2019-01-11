@@ -2,9 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Environment;
 use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
+use RuntimeException;
 
 class ChargeBee_Export extends Model
 {
@@ -18,7 +20,7 @@ class ChargeBee_Export extends Model
             if ($count++ > 50) {
                 throw new RuntimeException('Export is taking too long');
             }
-            sleep(ChargeBee_Environment::$exportWaitInSecs);
+            sleep(Environment::$exportWaitInSecs);
             $this->_values = ChargeBee_Export::retrieve($this->id, $env, $headers)->export()->getValues();
             $this->_load();
         }

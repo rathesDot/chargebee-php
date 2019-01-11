@@ -2,9 +2,11 @@
 
 namespace Chargebee\Chargebee\Models;
 
+use Chargebee\Chargebee\Environment;
 use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
+use RuntimeException;
 
 class ChargeBee_TimeMachine extends Model
 {
@@ -19,7 +21,7 @@ class ChargeBee_TimeMachine extends Model
             if ($count++ > 30) {
                 throw new RuntimeException('The time travel is taking too much time');
             }
-            sleep(ChargeBee_Environment::$timeMachineWaitInSecs);
+            sleep(Environment::$timeMachineWaitInSecs);
             $this->_values = ChargeBee_TimeMachine::retrieve($this->name, $env)->timeMachine()->getValues();
             $this->_load();
         }
