@@ -59,6 +59,10 @@ $customer = $result->customer();
 $card = $result->card();
 ```
 
+## Security
+
+If you discover any security related issues, please use the issue tracker of the GitHub repository.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
