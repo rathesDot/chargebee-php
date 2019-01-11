@@ -8,7 +8,7 @@ use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 use RuntimeException;
 
-class ChargeBee_Event extends Model
+class Event extends Model
 {
     protected $allowed = ['id', 'occurredAt', 'source', 'user', 'webhookStatus', 'webhookFailureReason',
         'webhooks', 'eventType', 'apiVersion', ];

@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Transaction extends Model
+class Transaction extends Model
 {
     protected $allowed = ['id', 'customerId', 'subscriptionId', 'gatewayAccountId', 'paymentSourceId', 'paymentMethod',
         'referenceNumber', 'gateway', 'type', 'date', 'settledAt', 'currencyCode', 'amount', 'idAtGateway', 'status', 'fraudFlag', 'authorizationReason', 'errorCode', 'errorText', 'voidedAt', 'resourceVersion', 'updatedAt', 'fraudReason', 'amountUnused', 'maskedCardNumber', 'referenceTransactionId', 'refundedTxnId', 'referenceAuthorizationId', 'amountCapturable', 'reversalTransactionId', 'linkedInvoices', 'linkedCreditNotes', 'linkedRefunds', 'linkedPayments', 'deleted', ];

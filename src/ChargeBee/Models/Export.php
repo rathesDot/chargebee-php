@@ -8,7 +8,7 @@ use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 use RuntimeException;
 
-class ChargeBee_Export extends Model
+class Export extends Model
 {
     protected $allowed = ['id', 'operationType', 'mimeType', 'status', 'createdAt', 'download',
     ];

@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Estimate extends Model
+class Estimate extends Model
 {
     protected $allowed = ['createdAt', 'subscriptionEstimate', 'invoiceEstimate', 'invoiceEstimates', 'nextInvoiceEstimate',
         'creditNoteEstimates', 'unbilledChargeEstimates', ];

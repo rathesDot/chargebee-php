@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Address extends Model
+class Address extends Model
 {
     protected $allowed = ['label', 'firstName', 'lastName', 'email', 'company', 'phone', 'addr', 'extendedAddr',
         'extendedAddr2', 'city', 'stateCode', 'state', 'country', 'zip', 'validationStatus', 'subscriptionId', ];

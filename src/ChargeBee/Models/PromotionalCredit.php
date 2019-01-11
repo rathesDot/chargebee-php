@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_PromotionalCredit extends Model
+class PromotionalCredit extends Model
 {
     protected $allowed = ['id', 'customerId', 'type', 'amount', 'currencyCode', 'description', 'creditType',
         'reference', 'closingBalance', 'doneBy', 'createdAt', ];

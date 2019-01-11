@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_CouponCode extends Model
+class CouponCode extends Model
 {
     protected $allowed = ['code', 'status', 'couponId', 'couponSetId', 'couponSetName',
     ];

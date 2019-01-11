@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Customer extends Model
+class Customer extends Model
 {
     protected $allowed = ['id', 'firstName', 'lastName', 'email', 'phone', 'company', 'vatNumber', 'autoCollection',
         'netTermDays', 'vatNumberValidatedTime', 'vatNumberStatus', 'allowDirectDebit', 'isLocationValid', 'createdAt', 'createdFromIp', 'taxability', 'entityCode', 'exemptNumber', 'resourceVersion', 'updatedAt', 'locale', 'consolidatedInvoicing', 'billingDate', 'billingDateMode', 'billingDayOfWeek', 'billingDayOfWeekMode', 'piiCleared', 'cardStatus', 'fraudFlag', 'primaryPaymentSourceId', 'backupPaymentSourceId', 'billingAddress', 'referralUrls', 'contacts', 'paymentMethod', 'invoiceNotes', 'preferredCurrencyCode', 'promotionalCredits', 'unbilledCharges', 'refundableCredits', 'excessPayments', 'balances', 'metaData', 'deleted', 'registeredForGst', ];

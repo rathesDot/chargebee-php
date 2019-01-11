@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_PaymentSource extends Model
+class PaymentSource extends Model
 {
     protected $allowed = ['id', 'customerId', 'type', 'referenceId', 'status', 'gateway', 'gatewayAccountId',
         'ipAddress', 'issuingCountry', 'card', 'bankAccount', 'amazonPayment', 'paypal', 'deleted', ];

@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_HostedPage extends Model
+class HostedPage extends Model
 {
     protected $allowed = ['id', 'type', 'url', 'state', 'failureReason', 'passThruContent', 'embed', 'createdAt',
         'expiresAt', 'updatedAt', 'resourceVersion', 'checkoutInfo', ];

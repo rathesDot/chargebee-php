@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Invoice extends Model
+class Invoice extends Model
 {
     protected $allowed = ['id', 'poNumber', 'customerId', 'subscriptionId', 'recurring', 'status', 'vatNumber',
         'priceType', 'date', 'dueDate', 'netTermDays', 'currencyCode', 'total', 'amountPaid', 'amountAdjusted', 'writeOffAmount', 'creditsApplied', 'amountDue', 'paidAt', 'dunningStatus', 'nextRetryAt', 'voidedAt', 'resourceVersion', 'updatedAt', 'subTotal', 'tax', 'firstInvoice', 'hasAdvanceCharges', 'termFinalized', 'isGifted', 'expectedPaymentDate', 'amountToCollect', 'roundOffAmount', 'lineItems', 'discounts', 'lineItemDiscounts', 'taxes', 'lineItemTaxes', 'lineItemTiers', 'linkedPayments', 'appliedCredits', 'adjustmentCreditNotes', 'issuedCreditNotes', 'linkedOrders', 'notes', 'shippingAddress', 'billingAddress', 'deleted', ];

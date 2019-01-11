@@ -9,7 +9,7 @@ use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 use RuntimeException;
 
-class ChargeBee_TimeMachine extends Model
+class TimeMachine extends Model
 {
     protected $allowed = ['name', 'timeTravelStatus', 'genesisTime', 'destinationTime', 'failureCode', 'failureReason',
         'errorJson', ];

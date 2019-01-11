@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Gift extends Model
+class Gift extends Model
 {
     protected $allowed = ['id', 'status', 'scheduledAt', 'autoClaim', 'claimExpiryDate', 'resourceVersion',
         'updatedAt', 'gifter', 'giftReceiver', 'giftTimelines', ];

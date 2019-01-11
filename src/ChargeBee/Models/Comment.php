@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Comment extends Model
+class Comment extends Model
 {
     protected $allowed = ['id', 'entityType', 'addedBy', 'notes', 'createdAt', 'type', 'entityId',
     ];

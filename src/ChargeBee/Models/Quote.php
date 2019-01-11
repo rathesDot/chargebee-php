@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Quote extends Model
+class Quote extends Model
 {
     protected $allowed = ['id', 'poNumber', 'customerId', 'subscriptionId', 'status', 'operationType', 'vatNumber',
         'priceType', 'validTill', 'date', 'subTotal', 'total', 'creditsApplied', 'amountPaid', 'amountDue', 'resourceVersion', 'updatedAt', 'currencyCode', 'lineItems', 'discounts', 'lineItemDiscounts', 'taxes', 'lineItemTaxes', 'shippingAddress', 'billingAddress', ];

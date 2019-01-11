@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_UnbilledCharge extends Model
+class UnbilledCharge extends Model
 {
     protected $allowed = ['id', 'customerId', 'subscriptionId', 'dateFrom', 'dateTo', 'unitAmount', 'pricingModel',
         'quantity', 'amount', 'currencyCode', 'discountAmount', 'description', 'entityType', 'entityId', 'isVoided', 'voidedAt', 'tiers', 'deleted', ];

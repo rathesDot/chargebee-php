@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Card extends Model
+class Card extends Model
 {
     protected $allowed = ['paymentSourceId', 'status', 'gateway', 'gatewayAccountId', 'firstName', 'lastName',
         'iin', 'last4', 'cardType', 'fundingType', 'expiryMonth', 'expiryYear', 'issuingCountry', 'billingAddr1', 'billingAddr2', 'billingCity', 'billingStateCode', 'billingState', 'billingCountry', 'billingZip', 'ipAddress', 'customerId', 'maskedNumber', ];

@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_VirtualBankAccount extends Model
+class VirtualBankAccount extends Model
 {
     protected $allowed = ['id', 'customerId', 'email', 'bankName', 'accountNumber', 'routingNumber', 'swiftCode',
         'gateway', 'gatewayAccountId', 'referenceId', 'deleted', ];

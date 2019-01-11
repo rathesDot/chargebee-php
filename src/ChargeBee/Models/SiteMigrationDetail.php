@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_SiteMigrationDetail extends Model
+class SiteMigrationDetail extends Model
 {
     protected $allowed = ['entityId', 'otherSiteName', 'entityIdAtOtherSite', 'migratedAt', 'entityType',
         'status', ];

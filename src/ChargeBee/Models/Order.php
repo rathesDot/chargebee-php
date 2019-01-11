@@ -6,7 +6,7 @@ use Chargebee\Chargebee\Model;
 use Chargebee\Chargebee\Request;
 use Chargebee\Chargebee\Util;
 
-class ChargeBee_Order extends Model
+class Order extends Model
 {
     protected $allowed = ['id', 'documentNumber', 'invoiceId', 'subscriptionId', 'customerId', 'status',
         'cancellationReason', 'paymentStatus', 'orderType', 'priceType', 'referenceId', 'fulfillmentStatus', 'orderDate', 'shippingDate', 'note', 'trackingId', 'batchId', 'createdBy', 'shipmentCarrier', 'invoiceRoundOffAmount', 'tax', 'amountPaid', 'amountAdjusted', 'refundableCreditsIssued', 'refundableCredits', 'roundingAdjustement', 'paidOn', 'shippingCutOffDate', 'createdAt', 'statusUpdateAt', 'deliveredAt', 'shippedAt', 'resourceVersion', 'updatedAt', 'cancelledAt', 'orderLineItems', 'shippingAddress', 'billingAddress', 'discount', 'subTotal', 'total', 'lineItemTaxes', 'lineItemDiscounts', 'linkedCreditNotes', 'deleted', 'currencyCode', 'isGifted', 'giftNote', 'giftId', ];
