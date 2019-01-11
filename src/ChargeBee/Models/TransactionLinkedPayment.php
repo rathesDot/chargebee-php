@@ -1,6 +1,8 @@
 <?php
 
+namespace Chargebee\Chargebee\Models;
+
 class ChargeBee_TransactionLinkedPayment extends ChargeBee_Model
 {
-    protected $allowed = array('id', 'status', 'amount', 'date');
+    protected $allowed = ['id', 'status', 'amount', 'date'];
 }

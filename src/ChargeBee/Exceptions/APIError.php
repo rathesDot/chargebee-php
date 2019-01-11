@@ -1,5 +1,7 @@
 <?php
 
+namespace Chargebee\Chargebee\Exceptions;
+
 class ChargeBee_APIError extends Exception
 {
     private $httpStatusCode;
@@ -12,9 +14,9 @@ class ChargeBee_APIError extends Exception
     {
         parent::__construct($jsonObject['message']);
         $this->jsonObject = $jsonObject;
-        $this->type = isset($jsonObject['type'])? $jsonObject['type']:null;
+        $this->type = isset($jsonObject['type']) ? $jsonObject['type'] : null;
         $this->apiErrorCode = $jsonObject['api_error_code'];
-        $this->param = isset($jsonObject['param'])?$jsonObject['param']:null;
+        $this->param = isset($jsonObject['param']) ? $jsonObject['param'] : null;
         $this->httpStatusCode = $httpStatusCode;
     }
 
@@ -40,6 +42,7 @@ class ChargeBee_APIError extends Exception
 
     /**
      * This function has been deprecated. Use getHttpStatusCode.
+     *
      * @deprecated
      */
     public function getHttpCode()
@@ -50,6 +53,7 @@ class ChargeBee_APIError extends Exception
     /**
      * This function has been deprecated. There IO errors are now thrown as
      * ChargeBee_IOException.
+     *
      * @deprecated
      */
     public function getErrorNo()

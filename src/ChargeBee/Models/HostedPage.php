@@ -1,83 +1,86 @@
 <?php
 
+namespace Chargebee\Chargebee\Models;
+
 class ChargeBee_HostedPage extends ChargeBee_Model
 {
-    protected $allowed = array('id', 'type', 'url', 'state', 'failureReason', 'passThruContent', 'embed', 'createdAt',
-'expiresAt', 'updatedAt', 'resourceVersion', 'checkoutInfo');
+    protected $allowed = ['id', 'type', 'url', 'state', 'failureReason', 'passThruContent', 'embed', 'createdAt',
+        'expiresAt', 'updatedAt', 'resourceVersion', 'checkoutInfo', ];
 
     public function content()
     {
         if (isset($this->_values['content'])) {
             return new ChargeBee_Content($this->_values['content']);
         }
+
         return null;
     }
 
-    # OPERATIONS
-    #-----------
+    // OPERATIONS
+    //-----------
 
-    public static function checkoutNew($params, $env = null, $headers = array())
+    public static function checkoutNew($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "checkout_new"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'checkout_new'), $params, $env, $headers);
     }
 
-    public static function checkoutExisting($params, $env = null, $headers = array())
+    public static function checkoutExisting($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "checkout_existing"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'checkout_existing'), $params, $env, $headers);
     }
 
-    public static function updateCard($params, $env = null, $headers = array())
+    public static function updateCard($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "update_card"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'update_card'), $params, $env, $headers);
     }
 
-    public static function updatePaymentMethod($params, $env = null, $headers = array())
+    public static function updatePaymentMethod($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "update_payment_method"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'update_payment_method'), $params, $env, $headers);
     }
 
-    public static function managePaymentSources($params, $env = null, $headers = array())
+    public static function managePaymentSources($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "manage_payment_sources"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'manage_payment_sources'), $params, $env, $headers);
     }
 
-    public static function collectNow($params, $env = null, $headers = array())
+    public static function collectNow($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "collect_now"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'collect_now'), $params, $env, $headers);
     }
 
-    public static function extendSubscription($params, $env = null, $headers = array())
+    public static function extendSubscription($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "extend_subscription"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'extend_subscription'), $params, $env, $headers);
     }
 
-    public static function checkoutGift($params, $env = null, $headers = array())
+    public static function checkoutGift($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "checkout_gift"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'checkout_gift'), $params, $env, $headers);
     }
 
-    public static function claimGift($params, $env = null, $headers = array())
+    public static function claimGift($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "claim_gift"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'claim_gift'), $params, $env, $headers);
     }
 
-    public static function retrieveAgreementPdf($params, $env = null, $headers = array())
+    public static function retrieveAgreementPdf($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", "retrieve_agreement_pdf"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', 'retrieve_agreement_pdf'), $params, $env, $headers);
     }
 
-    public static function acknowledge($id, $env = null, $headers = array())
+    public static function acknowledge($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("hosted_pages", $id, "acknowledge"), array(), $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('hosted_pages', $id, 'acknowledge'), [], $env, $headers);
     }
 
-    public static function retrieve($id, $env = null, $headers = array())
+    public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("hosted_pages", $id), array(), $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('hosted_pages', $id), [], $env, $headers);
     }
 
-    public static function all($params = array(), $env = null, $headers = array())
+    public static function all($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("hosted_pages"), $params, $env, $headers);
+        return ChargeBee_Request::sendListRequest(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('hosted_pages'), $params, $env, $headers);
     }
 }

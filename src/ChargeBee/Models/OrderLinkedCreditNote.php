@@ -1,6 +1,8 @@
 <?php
 
+namespace Chargebee\Chargebee\Models;
+
 class ChargeBee_OrderLinkedCreditNote extends ChargeBee_Model
 {
-    protected $allowed = array('amount', 'type', 'id', 'status', 'amount_adjusted', 'amount_refunded');
+    protected $allowed = ['amount', 'type', 'id', 'status', 'amount_adjusted', 'amount_refunded'];
 }

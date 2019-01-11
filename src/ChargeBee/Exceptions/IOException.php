@@ -1,5 +1,7 @@
 <?php
 
+namespace Chargebee\Chargebee\Exceptions;
+
 class ChargeBee_IOException extends Exception
 {
     private $errorNo;

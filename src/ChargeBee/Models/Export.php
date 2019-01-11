@@ -1,81 +1,82 @@
 <?php
 
+namespace Chargebee\Chargebee\Models;
+
 class ChargeBee_Export extends ChargeBee_Model
 {
-    protected $allowed = array('id', 'operationType', 'mimeType', 'status', 'createdAt', 'download'
-);
+    protected $allowed = ['id', 'operationType', 'mimeType', 'status', 'createdAt', 'download',
+    ];
 
-    public function waitForExportCompletion($env = null, $headers = array())
+    public function waitForExportCompletion($env = null, $headers = [])
     {
         $count = 0;
-        while ($this->status == "in_process") {
+        while ('in_process' == $this->status) {
             if ($count++ > 50) {
-                throw new RuntimeException("Export is taking too long");
+                throw new RuntimeException('Export is taking too long');
             }
             sleep(ChargeBee_Environment::$exportWaitInSecs);
             $this->_values = ChargeBee_Export::retrieve($this->id, $env, $headers)->export()->getValues();
             $this->_load();
         }
+
         return $this;
     }
 
+    // OPERATIONS
+    //-----------
 
-
-    # OPERATIONS
-    #-----------
-
-    public static function retrieve($id, $env = null, $headers = array())
+    public static function retrieve($id, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath("exports", $id), array(), $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::GET, ChargeBee_Util::encodeURIPath('exports', $id), [], $env, $headers);
     }
 
-    public static function revenueRecognition($params, $env = null, $headers = array())
+    public static function revenueRecognition($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "revenue_recognition"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'revenue_recognition'), $params, $env, $headers);
     }
 
-    public static function deferredRevenue($params, $env = null, $headers = array())
+    public static function deferredRevenue($params, $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "deferred_revenue"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'deferred_revenue'), $params, $env, $headers);
     }
 
-    public static function plans($params = array(), $env = null, $headers = array())
+    public static function plans($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "plans"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'plans'), $params, $env, $headers);
     }
 
-    public static function addons($params = array(), $env = null, $headers = array())
+    public static function addons($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "addons"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'addons'), $params, $env, $headers);
     }
 
-    public static function coupons($params = array(), $env = null, $headers = array())
+    public static function coupons($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "coupons"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'coupons'), $params, $env, $headers);
     }
 
-    public static function customers($params = array(), $env = null, $headers = array())
+    public static function customers($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "customers"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'customers'), $params, $env, $headers);
     }
 
-    public static function subscriptions($params = array(), $env = null, $headers = array())
+    public static function subscriptions($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "subscriptions"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'subscriptions'), $params, $env, $headers);
     }
 
-    public static function invoices($params = array(), $env = null, $headers = array())
+    public static function invoices($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "invoices"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'invoices'), $params, $env, $headers);
     }
 
-    public static function creditNotes($params = array(), $env = null, $headers = array())
+    public static function creditNotes($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "credit_notes"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'credit_notes'), $params, $env, $headers);
     }
 
-    public static function transactions($params = array(), $env = null, $headers = array())
+    public static function transactions($params = [], $env = null, $headers = [])
     {
-        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath("exports", "transactions"), $params, $env, $headers);
+        return ChargeBee_Request::send(ChargeBee_Request::POST, ChargeBee_Util::encodeURIPath('exports', 'transactions'), $params, $env, $headers);
     }
 }
