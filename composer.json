@@ -19,12 +19,12 @@
       "Chargebee\\": "src"
     },
     "files": [
-      "lib/ChargeBee.php"
+      "src/ChargeBee.php"
     ]
   },
   "autoload-dev": {
     "psr-4": {
       "Chargebee\\Test\\": "tests"
     }
-  },
+  }
 }
