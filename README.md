@@ -1,3 +1,5 @@
+**NOTE: This fork is not production ready. Please use the original repository for bug reports, security issues or feature requests**
+
 # Chargebee PHP Client Library - API V2
 
 [![Packagist](https://img.shields.io/packagist/v/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php)
