@@ -2,15 +2,11 @@
 
 class ChargeBee_Download extends ChargeBee_Model
 {
-
-  protected $allowed = array('downloadUrl', 'validTill'
+    protected $allowed = array('downloadUrl', 'validTill'
 );
 
 
 
-  # OPERATIONS
+    # OPERATIONS
   #-----------
-
- }
-
-?>
+}

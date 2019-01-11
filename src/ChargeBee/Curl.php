@@ -1,21 +1,25 @@
 <?php
 
-class ChargeBee_Curl {
-
-    public static function utf8($value) {
-        if (is_string($value))
+class ChargeBee_Curl
+{
+    public static function utf8($value)
+    {
+        if (is_string($value)) {
             return utf8_encode($value);
-        else
+        } else {
             return $value;
+        }
     }
 
-    public static function doRequest($meth, $url, $env, $params = array(), $headers = array()) {
+    public static function doRequest($meth, $url, $env, $params = array(), $headers = array())
+    {
         list($response, $httpCode) = self::request($meth, $url, $env, $params, $headers);
         $respJson = self::processResponse($response, $httpCode);
         return $respJson;
     }
 
-    public static function request($meth, $url, $env, $params, $headers) {
+    public static function request($meth, $url, $env, $params, $headers)
+    {
         $curl = curl_init();
         $opts = array();
         if ($meth == ChargeBee_Request::GET) {
@@ -24,7 +28,7 @@ class ChargeBee_Curl {
                 $encoded = http_build_query($params, null, '&');
                 $url = "$url?$encoded";
             }
-        } else if ($meth == ChargeBee_Request::POST) {
+        } elseif ($meth == ChargeBee_Request::POST) {
             $opts[CURLOPT_POST] = 1;
             $opts[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
         } else {
@@ -36,10 +40,10 @@ class ChargeBee_Curl {
         $opts[CURLOPT_CONNECTTIMEOUT] = ChargeBee_Environment::$connectTimeout;
         $opts[CURLOPT_TIMEOUT] = ChargeBee_Environment::$timeout;
         $userAgent = "Chargebee-PHP-Client" . " v" . ChargeBee_Version::VERSION;
-		
-		$httpHeaders = self::addCustomHeaders($headers);
-		array_push($httpHeaders, 'Accept: application/json', "User-Agent: " . $userAgent); // Adding headers to array
-		
+        
+        $httpHeaders = self::addCustomHeaders($headers);
+        array_push($httpHeaders, 'Accept: application/json', "User-Agent: " . $userAgent); // Adding headers to array
+        
         $opts[CURLOPT_HTTPHEADER] = $httpHeaders;
         $opts[CURLOPT_USERPWD] = $env->getApiKey() . ':';
         if (ChargeBee::getVerifyCaCerts()) {
@@ -63,32 +67,35 @@ class ChargeBee_Curl {
         curl_close($curl);
         return array($response, $httpCode);
     }
-	
-	public static function addCustomHeaders($headers) {
-		$httpHeaders = array();
-		foreach ($headers as $key => $val) {
-			array_push($httpHeaders, $key.": ".$val);
-		}
-		return $httpHeaders;
-	}
-	
-    public static function processResponse($response, $httpCode) {
+    
+    public static function addCustomHeaders($headers)
+    {
+        $httpHeaders = array();
+        foreach ($headers as $key => $val) {
+            array_push($httpHeaders, $key.": ".$val);
+        }
+        return $httpHeaders;
+    }
+    
+    public static function processResponse($response, $httpCode)
+    {
         $respJson = json_decode($response, true);
-        if(!$respJson){
+        if (!$respJson) {
             throw new Exception("Response not in JSON format. Might not be a ChargeBee Response.");
         }
         if ($httpCode < 200 || $httpCode > 299) {
-            self::handleAPIRespError($httpCode, $respJson,$response);
+            self::handleAPIRespError($httpCode, $respJson, $response);
         }
         return $respJson;
     }
 
-    public static function handleAPIRespError($httpCode, $respJson,$response) {
-        if(!isset($respJson['api_error_code'])){
+    public static function handleAPIRespError($httpCode, $respJson, $response)
+    {
+        if (!isset($respJson['api_error_code'])) {
             throw new Exception("No api_error_code attribute in content. Probably not a ChargeBee's error response. The content is \n " . $response);
         }
         $type="unknown";
-        if(isset($respJson['type'])){
+        if (isset($respJson['type'])) {
             $type = $respJson['type'];
         }
         if ($type == "payment") {
@@ -101,5 +108,4 @@ class ChargeBee_Curl {
             throw new ChargeBee_APIError($httpCode, $respJson);
         }
     }
-
 }
