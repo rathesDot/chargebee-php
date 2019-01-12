@@ -2,6 +2,8 @@
 
 namespace Chargebee;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use InvalidArgumentException;
 
 class ChargeBee
@@ -23,8 +25,17 @@ class ChargeBee
      */
     private $apiVersion;
 
-    public function __construct(string $site, string $apiKey, string $apiVersion = 'v2')
-    {
+    /**
+     * @var ClientInterface
+     */
+    private $httpClient;
+
+    public function __construct(
+        string $site,
+        string $apiKey,
+        string $apiVersion = 'v2',
+        ?ClientInterface $httpClient = null
+    ) {
         $this->site = $site;
         $this->apiKey = $apiKey;
 
@@ -33,10 +44,41 @@ class ChargeBee
         }
 
         $this->apiVersion = $apiVersion;
+
+        if (null === $httpClient) {
+            $httpClient = new Client();
+        }
+        $this->httpClient = $httpClient;
     }
 
     public function getApiVersion(): string
     {
         return $this->apiVersion;
+    }
+
+    public function get(string $endpoint): Response
+    {
+        return $this->request('GET', $endpoint);
+    }
+
+    private function request(string $method, string $endpoint): Response
+    {
+        $response = $this->httpClient->request(
+            $method,
+            $this->getBaseUrl().$endpoint
+        );
+
+        return new Response(
+            $response->getStatusCode(),
+            $response->getHeaders(),
+            $response->getBody(),
+            $response->getProtocolVersion(),
+            $response->getReasonPhrase()
+        );
+    }
+
+    private function getBaseUrl(): string
+    {
+        return "https://$this->site.chargebee.com/api/$this->apiVersion";
     }
 }
