@@ -68,6 +68,7 @@ final class ChargebeeTest extends TestCase
 
         $this->assertEquals('/api/v2/subscription', $request->getUri()->getPath());
         $this->assertEquals('site.chargebee.com', $request->getUri()->getHost());
+        $this->assertEquals(['Basic ' . base64_encode('api-key:')], $request->getHeader('Authorization'));
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(['test' => 'test2'], $response->getParsedBody());
     }
