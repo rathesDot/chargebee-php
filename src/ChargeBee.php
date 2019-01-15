@@ -65,7 +65,12 @@ class ChargeBee
     {
         $response = $this->httpClient->request(
             $method,
-            $this->getBaseUrl().$endpoint
+            $this->getBaseUrl().$endpoint,
+            [
+                'auth' => [
+                    $this->apiKey, ''
+                ]
+            ]
         );
 
         return new Response(
