@@ -68,11 +68,10 @@ final class ChargebeeTest extends TestCase
 
         $this->assertEquals('/api/v2/subscription', $request->getUri()->getPath());
         $this->assertEquals('site.chargebee.com', $request->getUri()->getHost());
-        $this->assertEquals(['Basic ' . base64_encode('api-key:')], $request->getHeader('Authorization'));
+        $this->assertEquals(['Basic '.base64_encode('api-key:')], $request->getHeader('Authorization'));
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(['test' => 'test2'], $response->getParsedBody());
     }
-
 
     /**
      * @test
@@ -101,7 +100,7 @@ final class ChargebeeTest extends TestCase
                 'item-a',
                 'item-b',
                 'item-c',
-            ]
+            ],
         ];
         $response = $client->post('/subscription', $body);
 
@@ -110,7 +109,7 @@ final class ChargebeeTest extends TestCase
 
         $this->assertEquals('/api/v2/subscription', $request->getUri()->getPath());
         $this->assertEquals('site.chargebee.com', $request->getUri()->getHost());
-        $this->assertEquals(['Basic ' . base64_encode('api-key:')], $request->getHeader('Authorization'));
+        $this->assertEquals(['Basic '.base64_encode('api-key:')], $request->getHeader('Authorization'));
         $this->assertEquals(json_encode($body), $request->getBody());
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(['test' => 'test2'], $response->getParsedBody());

@@ -64,7 +64,7 @@ class ChargeBee
     public function post(string $endpoint, array $params): Response
     {
         return $this->request('POST', $endpoint, [
-            'json' => $params
+            'json' => $params,
         ]);
     }
 
