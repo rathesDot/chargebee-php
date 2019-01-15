@@ -72,4 +72,47 @@ final class ChargebeeTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(['test' => 'test2'], $response->getParsedBody());
     }
+
+
+    /**
+     * @test
+     */
+    public function itSendsAPostRequest()
+    {
+        $mock = new MockHandler([
+            new GuzzleResponse(200, ['X-Foo' => 'Bar'], json_encode(['test' => 'test2'])),
+        ]);
+
+        $container = [];
+        $history = Middleware::history($container);
+
+        $stack = HandlerStack::create($mock);
+        $stack->push($history);
+
+        $httpClient = new Client([
+            'handler' => $stack,
+        ]);
+
+        $client = new ChargeBee('site', 'api-key', 'v2', $httpClient);
+
+        $body = [
+            'some' => 'key',
+            'more' => [
+                'item-a',
+                'item-b',
+                'item-c',
+            ]
+        ];
+        $response = $client->post('/subscription', $body);
+
+        /** @var Request $request */
+        $request = $container[0]['request'];
+
+        $this->assertEquals('/api/v2/subscription', $request->getUri()->getPath());
+        $this->assertEquals('site.chargebee.com', $request->getUri()->getHost());
+        $this->assertEquals(['Basic ' . base64_encode('api-key:')], $request->getHeader('Authorization'));
+        $this->assertEquals(json_encode($body), $request->getBody());
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertEquals(['test' => 'test2'], $response->getParsedBody());
+    }
 }
