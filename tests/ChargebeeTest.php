@@ -16,6 +16,38 @@ use PHPUnit\Framework\TestCase;
 final class ChargebeeTest extends TestCase
 {
     /**
+     * @var MockHandler
+     */
+    private $handler;
+
+    /**
+     * @var array
+     */
+    private $requestContainer;
+
+    /**
+     * @var ChargeBee
+     */
+    private $client;
+
+    protected function setUp()
+    {
+        $this->handler = new MockHandler([]);
+
+        $this->requestContainer = [];
+
+        $history = Middleware::history($this->requestContainer);
+        $stack = HandlerStack::create($this->handler);
+        $stack->push($history);
+
+        $httpClient = new Client([
+            'handler' => $stack,
+        ]);
+
+        $this->client = new ChargeBee('site', 'api-key', 'v2', $httpClient);
+    }
+
+    /**
      * @test
      */
     public function itInstantiatesAClientForV2()
@@ -45,26 +77,12 @@ final class ChargebeeTest extends TestCase
      */
     public function itSendsAGetRequest()
     {
-        $mock = new MockHandler([
-            new GuzzleResponse(200, ['X-Foo' => 'Bar'], json_encode(['test' => 'test2'])),
-        ]);
+        $this->handler->append(new GuzzleResponse(200, ['X-Foo' => 'Bar'], json_encode(['test' => 'test2'])));
 
-        $container = [];
-        $history = Middleware::history($container);
-
-        $stack = HandlerStack::create($mock);
-        $stack->push($history);
-
-        $httpClient = new Client([
-            'handler' => $stack,
-        ]);
-
-        $client = new ChargeBee('site', 'api-key', 'v2', $httpClient);
-
-        $response = $client->get('/subscription');
+        $response = $this->client->get('/subscription');
 
         /** @var Request $request */
-        $request = $container[0]['request'];
+        $request = $this->requestContainer[0]['request'];
 
         $this->assertEquals('/api/v2/subscription', $request->getUri()->getPath());
         $this->assertEquals('site.chargebee.com', $request->getUri()->getHost());
@@ -78,21 +96,7 @@ final class ChargebeeTest extends TestCase
      */
     public function itSendsAPostRequest()
     {
-        $mock = new MockHandler([
-            new GuzzleResponse(200, ['X-Foo' => 'Bar'], json_encode(['test' => 'test2'])),
-        ]);
-
-        $container = [];
-        $history = Middleware::history($container);
-
-        $stack = HandlerStack::create($mock);
-        $stack->push($history);
-
-        $httpClient = new Client([
-            'handler' => $stack,
-        ]);
-
-        $client = new ChargeBee('site', 'api-key', 'v2', $httpClient);
+        $this->handler->append(new GuzzleResponse(200, ['X-Foo' => 'Bar'], json_encode(['test' => 'test2'])));
 
         $body = [
             'some' => 'key',
@@ -102,10 +106,10 @@ final class ChargebeeTest extends TestCase
                 'item-c',
             ],
         ];
-        $response = $client->post('/subscription', $body);
+        $response = $this->client->post('/subscription', $body);
 
         /** @var Request $request */
-        $request = $container[0]['request'];
+        $request = $this->requestContainer[0]['request'];
 
         $this->assertEquals('/api/v2/subscription', $request->getUri()->getPath());
         $this->assertEquals('site.chargebee.com', $request->getUri()->getHost());
