@@ -61,16 +61,19 @@ class ChargeBee
         return $this->request('GET', $endpoint);
     }
 
-    private function request(string $method, string $endpoint): Response
+    private function request(string $method, string $endpoint, $options = []): Response
     {
         $response = $this->httpClient->request(
             $method,
             $this->getBaseUrl().$endpoint,
-            [
-                'auth' => [
-                    $this->apiKey, '',
-                ],
-            ]
+            array_merge(
+                $options,
+                [
+                    'auth' => [
+                        $this->apiKey, '',
+                    ],
+                ]
+            )
         );
 
         return new Response(
