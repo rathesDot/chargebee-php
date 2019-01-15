@@ -61,6 +61,13 @@ class ChargeBee
         return $this->request('GET', $endpoint);
     }
 
+    public function post(string $endpoint, array $params): Response
+    {
+        return $this->request('POST', $endpoint, [
+            'json' => $params
+        ]);
+    }
+
     private function request(string $method, string $endpoint, $options = []): Response
     {
         $response = $this->httpClient->request(
