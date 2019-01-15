@@ -68,8 +68,8 @@ class ChargeBee
             $this->getBaseUrl().$endpoint,
             [
                 'auth' => [
-                    $this->apiKey, ''
-                ]
+                    $this->apiKey, '',
+                ],
             ]
         );
 
