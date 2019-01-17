@@ -39,27 +39,43 @@ require_once(dirname(__FILE__) . 'path_to ChargeBee.php');
 
 ## Usage
 
-To create a new subscription:
+There are two different ways to use the SDK. On one hand you can use the SDK at full volume with all its predefined models.
+
+But on the other hand, you can use the SDK in its basic way and define the models and entities based on your business logic.
+
+### The Client
+
+Independent on what way you are going, the main entry point of the SDK is the Client.
+
+Initialize your client by providing your site and an API key.
 
 ```php
-require 'ChargeBee.php';
+<?php
 
-ChargeBee_Environment::configure("your_site", "{your_site_api_key}");
-
-$result = ChargeBee_Subscription::create(array(
-  "id" => "__dev__KyVqH3NW3f42fD",
-  "planId" => "starter",
-  "customer" => array(
-    "email" => "john@user.com",
-    "firstName" => "John",
-    "lastName" => "Wayne"
-  )
-));
-
-$subscription = $result->subscription();
-$customer = $result->customer();
-$card = $result->card();
+$client = new \Chargebee\Chargebee($site, $apiKey);
 ```
+
+> **Note:** The API keys are different for your test site and your live site.
+
+### The `get()` and `post()` methods
+
+Using that client, you can now make GET and POST requests to any of Chargebee's endpoints.
+
+```php
+<?php
+
+$client->get('/subscriptions');
+
+$client->post(
+  '/customers/8avVGOkx8U1MX/subscriptions',
+  [
+    'id' => 'some-id',
+    'plan_id' => 'basic'
+  ]
+);
+```
+
+The result of these request will always be a `\Chargebee\Response` which implements the PSR-Interface.
 
 ## Security
 
