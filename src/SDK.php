@@ -20,4 +20,9 @@ class SDK
 
         return new self($client);
     }
+
+    public function getClient(): ChargeBee
+    {
+        return $this->client;
+    }
 }
