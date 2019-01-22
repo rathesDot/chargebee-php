@@ -13,4 +13,11 @@ class SDK
     {
         $this->client = $client;
     }
+
+    public static function create(string $siteName, string $apiKey, string $apiVersion) : self
+    {
+        $client = new ChargeBee($siteName, $apiKey, $apiVersion);
+
+        return new self($client);
+    }
 }
