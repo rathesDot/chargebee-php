@@ -2,6 +2,11 @@
 
 namespace Chargebee;
 
+use Chargebee\Requests\Subscription;
+
+/**
+ * @property Subscription subscription
+ */
 class SDK
 {
     /**
@@ -24,5 +29,12 @@ class SDK
     public function getClient(): ChargeBee
     {
         return $this->client;
+    }
+
+    public function __get(string $name)
+    {
+        $className = '\\Chargebee\Requests\\' . ucfirst($name);
+
+        return new $className;
     }
 }
