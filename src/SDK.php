@@ -14,6 +14,8 @@ class SDK
      */
     private $client;
 
+    private $requestObjects = [];
+
     public function __construct(ChargeBee $client)
     {
         $this->client = $client;
@@ -33,12 +35,17 @@ class SDK
 
     public function __get(string $name)
     {
+        if (isset($this->requestObjects[$name])) {
+            return $this->requestObjects[$name];
+        }
+
         $className = '\\Chargebee\Requests\\' . ucfirst($name);
 
         if (!class_exists($className)) {
             throw new RequestObjectNotFound($className);
         }
 
-        return new $className;
+        $this->requestObjects[$name] = new $className;
+        return $this->requestObjects[$name];
     }
 }
