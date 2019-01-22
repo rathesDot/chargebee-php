@@ -18,4 +18,20 @@ class SDKTest extends TestCase
 
         $this->assertInstanceOf(SDK::class, $sdk);
     }
+
+    /**
+     * @test
+     */
+    public function itCreatesInstanceFromApiCredentials()
+    {
+        $sdk = SDK::create('sitename', 'some-api-key', 'v1');
+
+        $expectedClient = new ChargeBee('sitename', 'some-api-key', 'v1');
+
+        $this->assertInstanceOf(SDK::class, $sdk);
+        $this->assertEquals(
+            $expectedClient,
+            $sdk->getClient()
+        );
+    }
 }
