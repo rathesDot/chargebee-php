@@ -35,6 +35,10 @@ class SDK
     {
         $className = '\\Chargebee\Requests\\' . ucfirst($name);
 
+        if (!class_exists($className)) {
+            throw new RequestObjectNotFound($className);
+        }
+
         return new $className;
     }
 }
