@@ -60,4 +60,17 @@ class SDKTest extends TestCase
         $this->expectException(RequestObjectNotFound::class);
         $sdk->somethingElse;
     }
+
+    /**
+     * @test
+     */
+    public function itReturnsTheSameObjectIfAlreadyDefined()
+    {
+        $sdk = SDK::create('sitename', 'some-api-key', 'v1');
+
+        $this->assertSame(
+            $sdk->subscription,
+            $sdk->subscription
+        );
+    }
 }
