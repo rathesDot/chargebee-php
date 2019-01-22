@@ -3,6 +3,7 @@
 namespace Chargebee\Test;
 
 use Chargebee\ChargeBee;
+use Chargebee\Requests\Subscription;
 use Chargebee\SDK;
 use PHPUnit\Framework\TestCase;
 
@@ -32,6 +33,19 @@ class SDKTest extends TestCase
         $this->assertEquals(
             $expectedClient,
             $sdk->getClient()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function itGetsTheCorrectRequestObject()
+    {
+        $sdk = SDK::create('sitename', 'some-api-key', 'v1');
+
+        $this->assertInstanceOf(
+            Subscription::class,
+            $sdk->subscription
         );
     }
 }
