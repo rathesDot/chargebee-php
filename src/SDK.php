@@ -21,7 +21,7 @@ class SDK
         $this->client = $client;
     }
 
-    public static function create(string $siteName, string $apiKey, string $apiVersion) : self
+    public static function create(string $siteName, string $apiKey, string $apiVersion): self
     {
         $client = new ChargeBee($siteName, $apiKey, $apiVersion);
 
@@ -39,13 +39,14 @@ class SDK
             return $this->requestObjects[$name];
         }
 
-        $className = '\\Chargebee\Requests\\' . ucfirst($name);
+        $className = '\\Chargebee\Requests\\'.ucfirst($name);
 
         if (!class_exists($className)) {
             throw new RequestObjectNotFound($className);
         }
 
-        $this->requestObjects[$name] = new $className;
+        $this->requestObjects[$name] = new $className();
+
         return $this->requestObjects[$name];
     }
 }
