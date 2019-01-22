@@ -3,6 +3,7 @@
 namespace Chargebee\Test;
 
 use Chargebee\ChargeBee;
+use Chargebee\RequestObjectNotFound;
 use Chargebee\Requests\Subscription;
 use Chargebee\SDK;
 use PHPUnit\Framework\TestCase;
@@ -47,5 +48,16 @@ class SDKTest extends TestCase
             Subscription::class,
             $sdk->subscription
         );
+    }
+
+    /**
+     * @test
+     */
+    public function itThrowsIfRequestObjectWasNotFound()
+    {
+        $sdk = SDK::create('sitename', 'some-api-key', 'v1');
+
+        $this->expectException(RequestObjectNotFound::class);
+        $sdk->somethingElse;
     }
 }
