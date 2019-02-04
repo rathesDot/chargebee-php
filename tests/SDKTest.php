@@ -97,4 +97,14 @@ class SDKTest extends TestCase
         $sdk->disableModelHydration();
         $this->assertFalse($sdk->isModelHydrationEnabled());
     }
+
+    /**
+     * @test
+     */
+    public function itDisablesModelHydrationByDefault()
+    {
+        $sdk = SDK::create('sitename', 'some-api-key', 'v1');
+
+        $this->assertFalse($sdk->isModelHydrationEnabled());
+    }
 }
