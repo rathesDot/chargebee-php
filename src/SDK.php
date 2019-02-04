@@ -16,6 +16,9 @@ class SDK
      */
     private $client;
 
+    /**
+     * @var array
+     */
     private $requestObjects = [];
 
     public function __construct(ChargeBee $client)
