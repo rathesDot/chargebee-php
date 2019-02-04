@@ -9,6 +9,8 @@ use Chargebee\Requests\Subscription;
  */
 class SDK
 {
+    const REQUEST_OBJECTS_NAMESPACE = '\\Chargebee\Requests\\';
+
     /**
      * @var ChargeBee
      */
@@ -39,7 +41,7 @@ class SDK
             return $this->requestObjects[$name];
         }
 
-        $className = '\\Chargebee\Requests\\'.ucfirst($name);
+        $className = self::REQUEST_OBJECTS_NAMESPACE.ucfirst($name);
 
         if (!class_exists($className)) {
             throw new RequestObjectNotFound($className);
