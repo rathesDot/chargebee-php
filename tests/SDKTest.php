@@ -73,4 +73,15 @@ class SDKTest extends TestCase
             $sdk->subscription
         );
     }
+
+    /**
+     * @test
+     */
+    public function itCanEnableModelHydration()
+    {
+        $sdk = SDK::create('sitename', 'some-api-key', 'v1');
+        $sdk->enableModelHydration();
+
+        $this->assertTrue($sdk->isModelHydrationEnabled());
+    }
 }
