@@ -21,6 +21,11 @@ class SDK
      */
     private $requestObjects = [];
 
+    /**
+     * @var bool
+     */
+    private $hydrateModels = false;
+
     public function __construct(ChargeBee $client)
     {
         $this->client = $client;
@@ -53,5 +58,15 @@ class SDK
         $this->requestObjects[$name] = new $className();
 
         return $this->requestObjects[$name];
+    }
+
+    public function enableModelHydration(): void
+    {
+        $this->hydrateModels = true;
+    }
+
+    public function isModelHydrationEnabled(): bool
+    {
+        return $this->hydrateModels;
     }
 }
