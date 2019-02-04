@@ -69,4 +69,9 @@ class SDK
     {
         return $this->hydrateModels;
     }
+
+    public function disableModelHydration(): void
+    {
+        $this->hydrateModels = false;
+    }
 }
