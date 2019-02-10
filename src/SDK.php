@@ -59,19 +59,4 @@ class SDK
 
         return $this->requestObjects[$name];
     }
-
-    public function enableModelHydration(): void
-    {
-        $this->hydrateModels = true;
-    }
-
-    public function isModelHydrationEnabled(): bool
-    {
-        return $this->hydrateModels;
-    }
-
-    public function disableModelHydration(): void
-    {
-        $this->hydrateModels = false;
-    }
 }
