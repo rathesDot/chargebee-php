@@ -28,7 +28,9 @@ class Util
      * @param $value
      * @param null $prefix
      * @param null $idx
+     *
      * @return array
+     *
      * @throws Exception
      */
     public static function serialize($value, $prefix = null, $idx = null)
@@ -66,6 +68,7 @@ class Util
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public static function encodeURIPath()
