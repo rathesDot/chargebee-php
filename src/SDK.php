@@ -58,6 +58,10 @@ class SDK
             throw new RequestObjectNotFound($className);
         }
 
+        if (!in_array( Request::class, class_implements($className))) {
+            throw new RequestObjectNotValid($className);
+        }
+
         $this->requestObjects[$name] = new $className();
 
         return $this->requestObjects[$name];
