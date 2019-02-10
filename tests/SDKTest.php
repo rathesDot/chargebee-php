@@ -81,7 +81,7 @@ class SDKTest extends TestCase
     public function itThrowsIfRequestObjectDoesNotImplementsInterface()
     {
         $client = new ChargeBee('sitename', 'some-api-key', 'v1');
-        $sdk = new SDK($client, 'Chargebee\\Test\\Dummy');
+        $sdk = new SDK($client, 'Chargebee\\Test\\Dummy\\');
 
         $this->expectException(RequestObjectNotValid::class);
         $sdk->someClass;
