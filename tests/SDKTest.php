@@ -4,6 +4,7 @@ namespace Chargebee\Test;
 
 use Chargebee\ChargeBee;
 use Chargebee\RequestObjectNotFound;
+use Chargebee\RequestObjectNotValid;
 use Chargebee\Requests\Subscription;
 use Chargebee\SDK;
 use PHPUnit\Framework\TestCase;
