@@ -21,11 +21,6 @@ class SDK
      */
     private $requestObjects = [];
 
-    /**
-     * @var bool
-     */
-    private $hydrateModels = false;
-
     public function __construct(ChargeBee $client)
     {
         $this->client = $client;
