@@ -62,7 +62,7 @@ class SDK
             throw new RequestObjectNotValid($className);
         }
 
-        $this->requestObjects[$name] = new $className();
+        $this->requestObjects[$name] = new $className($this->client->getHttpClient());
 
         return $this->requestObjects[$name];
     }
