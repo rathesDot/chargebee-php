@@ -30,7 +30,7 @@ final class ChargebeeTest extends TestCase
      */
     private $client;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->handler = new MockHandler([]);
 
