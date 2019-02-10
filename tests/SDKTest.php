@@ -73,4 +73,16 @@ class SDKTest extends TestCase
             $sdk->subscription
         );
     }
+
+    /**
+     * @test
+     */
+    public function itThrowsIfRequestObjectDoesNotImplementsInterface()
+    {
+        $client = new ChargeBee('sitename', 'some-api-key', 'v1');
+        $sdk = new SDK($client, 'Chargebee\\Test\\Dummy');
+
+        $this->expectException(RequestObjectNotValid::class);
+        $sdk->someClass;
+    }
 }
