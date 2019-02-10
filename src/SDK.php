@@ -21,9 +21,17 @@ class SDK
      */
     private $requestObjects = [];
 
-    public function __construct(ChargeBee $client)
-    {
+    /**
+     * @var string
+     */
+    private $requestObjectsNamespace;
+
+    public function __construct(
+        ChargeBee $client,
+        string $requestObjectsNamespace = self::REQUEST_OBJECTS_NAMESPACE
+    ) {
         $this->client = $client;
+        $this->requestObjectsNamespace = $requestObjectsNamespace;
     }
 
     public static function create(string $siteName, string $apiKey, string $apiVersion): self
@@ -44,7 +52,7 @@ class SDK
             return $this->requestObjects[$name];
         }
 
-        $className = self::REQUEST_OBJECTS_NAMESPACE.ucfirst($name);
+        $className = $this->requestObjectsNamespace.ucfirst($name);
 
         if (!class_exists($className)) {
             throw new RequestObjectNotFound($className);
