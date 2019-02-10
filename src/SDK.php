@@ -58,7 +58,7 @@ class SDK
             throw new RequestObjectNotFound($className);
         }
 
-        if (!in_array( Request::class, class_implements($className))) {
+        if (!in_array(Request::class, class_implements($className))) {
             throw new RequestObjectNotValid($className);
         }
 
