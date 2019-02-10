@@ -68,6 +68,11 @@ class ChargeBee
         ]);
     }
 
+    public function getHttpClient(): ClientInterface
+    {
+        return $this->httpClient;
+    }
+
     private function request(string $method, string $endpoint, $options = []): Response
     {
         $response = $this->httpClient->request(
