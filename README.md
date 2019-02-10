@@ -77,6 +77,52 @@ $client->post(
 
 The result of these request will always be a `\Chargebee\Response` which implements the PSR-Interface.
 
+## The SDK
+
+In addition to the basic client, this repository also provides a version with a set of all models that are accessible via the Chargebee API. So instead of just calling the API endpoints and working with arrays, you can also choose to work with a set of helper methods to build you requests.
+
+For example, if you want to call the `/subscriptions` endpoint you can either do it via the client, or you can use the Request Builder that we call the SDK.
+
+```php
+<?php
+
+$client = new \Chargebee\Chargebee($site, $apiKey);
+
+$sdk = new \Chargebee\SDK($client);
+```
+
+You can also use the factory method to let the SDK create the client.
+
+```php
+<?php
+
+$sdk = \Chargebee\SDK::create($site, $apiKey);
+```
+
+Using that SDK you now have access to a `subscription` property that you can use to call endpoints of the entity, in our example listing all subscriptions:
+
+```php
+<?php
+
+$sdk->subscriptions
+    ->list();
+```
+
+You can even add constraints to the request by adding them to the chain
+
+
+```php
+<?php
+
+$response = $sdk->subscriptions
+    ->limit(5)
+    ->where('plan_id', 'is_not', 'basic')
+    ->where('status', 'is', 'active')
+    ->list();
+```
+
+The response will now be an array, the same as you would call the `get()` method on the client.
+
 ## Security
 
 If you discover any security related issues, please use the issue tracker of the GitHub repository.
