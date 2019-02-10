@@ -1,41 +1,30 @@
-**NOTE: This fork is not production ready. Please use the original repository for bug reports, security issues or feature requests**
+**NOTE: This repository is not production ready. Please use the [original repository](https://github.com/chargebee/chargebee-php) for bug reports, security issues or feature requests**
 
-# Chargebee PHP Client Library - API V2
+# Chargebee PHP SDK
 
-[![Packagist](https://img.shields.io/packagist/v/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php)
-[![Packagist](https://img.shields.io/packagist/dt/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
-[![Packagist](https://img.shields.io/packagist/dm/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php/stats)
-[![Packagist](https://img.shields.io/packagist/l/chargebee/chargebee-php.svg?maxAge=2592000)](https://packagist.org/packages/chargebee/chargebee-php)
-
-This is the PHP Library for integrating with Chargebee. Sign up for a Chargebee account [here](https://www.chargebee.com).
-
-Chargebee now supports two API versions - [V1](https://apidocs.chargebee.com/docs/api/v1) and [V2](https://apidocs.chargebee.com/docs/api), of which V2 is the latest release and all future developments will happen in V2. This library is for **API version V2**. If you’re looking for V1, head to [chargebee-v1 branch](https://github.com/chargebee/chargebee-php/tree/chargebee-v1).
+This package supports you integrating your PHP application with the [API of Chargebee](https://apidocs.chargebee.com/docs/api).
 
 ## Requirements
 
-This package require a PHP version `> 7.3`.
+This package requires a PHP version `> 7.3`.
 
 ## Installation
 
-`ChargeBee` is available on [Packagist](https://packagist.org/packages/chargebee/chargebee-php) and can be installed using [Composer](https://getcomposer.org/)
+The package is not published on packagist yet, so if you want to use this project add this repository manually to your `composer.json`
 
-```shell
-$ composer require chargebee/chargebee-php:'>=2, &lt;3'
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rathesDot/chargebee-php"
+        }
+    ],
+    "require": {
+        "rathesDot/chargebee-php": "dev-master"
+    }
+}
 ```
-
-or
-Download the php library version 2.x.x from https://github.com/chargebee/chargebee-php/tags. Extract the library into the
-php include path.
-
-Then, require the library as
-
-```php
-require_once(dirname(__FILE__) . 'path_to ChargeBee.php');
-```
-
-## Documentation
-
-- [API Reference](https://apidocs.chargebee.com/docs/api?lang=php)
 
 ## Usage
 
