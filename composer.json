@@ -1,5 +1,5 @@
 {
-  "name": "chargebee/chargebee-php",
+  "name": "rathesDot/chargebee-php",
   "type": "library",
   "description": "ChargeBee API client implementation for PHP",
   "keywords": [
@@ -9,7 +9,7 @@
     "recurring billing"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/chargebee/chargebee-php",
+  "homepage": "https://github.com/rathesDot/chargebee-php",
   "minimum-stability": "stable",
   "require": {
     "php" : "^7.3",
