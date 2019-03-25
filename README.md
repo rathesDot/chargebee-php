@@ -6,7 +6,7 @@ This package supports you integrating your PHP application with the [API of Char
 
 ## Requirements
 
-This package requires a PHP version `> 7.3`.
+This package requires a PHP version `>= 7.3`.
 
 ## Installation
 
